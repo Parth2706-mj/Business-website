@@ -1,6 +1,14 @@
-import React from "react";
+import { HeroSection, AboutSection, ProductCategories, TechnicalSupport, IndustryPartners, ContactSection } from "@/components/sections/homepage";
 
-const Home = () => {
-  return <div>page</div>;
-};
-export default Home;
+export default function Home() {
+  return (
+    <>
+      <HeroSection />
+      <AboutSection />
+      <ProductCategories />
+      <TechnicalSupport />
+      <IndustryPartners />
+      <ContactSection />
+    </>
+  );
+}
