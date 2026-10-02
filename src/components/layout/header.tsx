@@ -56,7 +56,7 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-3 lg:gap-4">
-          <SiteSearch className="hidden xl:block w-56" />
+          <SiteSearch className="hidden lg:block w-36 xl:w-56" />
           <Link
             href="/contact"
             className="hidden md:inline-flex bg-primary text-on-primary px-5 py-2 font-label text-xs font-semibold uppercase tracking-[0.08em] hover:bg-primary-container transition-colors"

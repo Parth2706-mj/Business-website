@@ -7,10 +7,10 @@ import { products } from "@/data/products";
 import type { EnquiryIntent } from "@/types";
 
 const intentCopy: Record<EnquiryIntent, { title: string; submit: string }> = {
-  general: { title: "Catalogue enquiry", submit: "Open email enquiry" },
-  quote: { title: "Quotation request", submit: "Open quotation email" },
-  tds: { title: "Technical data request", submit: "Request technical data" },
-  sds: { title: "Safety data request", submit: "Request safety data" },
+  general: { title: "Catalogue enquiry", submit: "Prepare enquiry" },
+  quote: { title: "Quotation request", submit: "Prepare quotation email" },
+  tds: { title: "Technical data request", submit: "Prepare technical data email" },
+  sds: { title: "Safety data request", submit: "Prepare safety data email" },
 };
 
 function readIntent(value: string | null): EnquiryIntent {
@@ -94,7 +94,6 @@ export function InquiryForm({ idPrefix = "enquiry" }: InquiryFormProps) {
     setError("");
     setSummary(text);
     setMailtoHref(href);
-    window.location.href = href;
   }
 
   async function copySummary() {
@@ -213,8 +212,7 @@ export function InquiryForm({ idPrefix = "enquiry" }: InquiryFormProps) {
       </button>
 
       <p className="font-body text-sm text-on-surface-variant leading-relaxed">
-        The button opens your email app with a message addressed to {company.emails.join(" and ")}.
-        This website does not store the form.
+        Preparing the enquiry keeps it on this page so you can copy it. Open email only when you are ready to send it to {company.emails.join(" and ")}. This website does not store the form.
       </p>
 
       {mailtoHref && (
@@ -228,7 +226,7 @@ export function InquiryForm({ idPrefix = "enquiry" }: InquiryFormProps) {
               href={mailtoHref}
               className="bg-primary text-on-primary px-4 py-3 font-label text-xs font-semibold uppercase tracking-[0.08em]"
             >
-              Open email again
+              Open email
             </a>
             <button
               type="button"
