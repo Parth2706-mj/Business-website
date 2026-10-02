@@ -1,40 +1,31 @@
 /* =============================================================================
  * Company Information
- * 
- * Core brand identity, contact details, and certifications.
- * Single source of truth for all company-related text across the site.
+ *
+ * Taken from the Baba Sons & Khandelwal Udyog company profile.
+ * Fields that are not on that profile (address, certifications, year founded)
+ * are omitted until they are supplied.
  * ============================================================================= */
 
 import type { CompanyInfo } from "@/types";
 
 export const company: CompanyInfo = {
-  /* ── Brand Identity ── */
-  name: "POLYMER-X INDUSTRIAL",
-  tagline: "Engineering Excellence in Polymer Science",
+  name: "Baba Sons & Khandelwal Udyog",
+  shortName: "Baba Sons",
+  tradeName: "Khandelwal Udyog",
+  tagline: "Single Window Service Provider",
   description:
-    "Industrial leader in high-performance polymer science and chemical engineering solutions. We engineer the building blocks of progress with molecular precision.",
+    "Chemicals with technical back-up for PVC and CPVC processing — agricultural and SWR pipe, conduit, wire and cable, garden tubing, film, panel, flooring, and CPVC.",
 
-  /* ── History ── */
-  foundedYear: 1984,
+  emails: ["Babasons9@gmail.com", "Chemicalwala9@gmail.com"],
+  phone: "+91 94133 03649",
+  phoneHref: "tel:+919413303649",
 
-  /* ── Contact ── */
-  email: "SALES@POLYMER-X.TECH",
-  phone: "+1 (800) POLY-IND",
-  address: "1200 Industrial Parkway, Newark, NJ 07114, United States",
-
-  /* ── Certifications & Standards ── */
-  certifications: [
-    "ISO 9001:2015",
-    "ISO 14001:2015",
-    "ASTM International",
-    "REACH Compliant",
-    "RoHS Compliant",
-    "UL Certified",
+  channelPartners: [
+    "Indofil / Reagans India",
+    "Gold Stab",
+    "Maldeep Catalysts",
+    "Camex Ltd.",
   ],
 
-  /* ── Social Media ── */
-  socialLinks: [
-    { platform: "LinkedIn", url: "https://linkedin.com/company/polymer-x" },
-    { platform: "Twitter", url: "https://twitter.com/polymerx" },
-  ],
+  socialLinks: [],
 };

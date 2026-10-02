@@ -1,189 +1,200 @@
 /* =============================================================================
- * Product Catalog
- * 
- * Full product data for all 4 categories.
- * Each product contains card-level and detail-page-level content.
- * 
- * To add a new product:
- *   1. Add a new entry to the `products` array below
- *   2. The slug will auto-generate a route at /products/[slug]
- *   3. Update relatedSlugs on existing products if needed
+ * Product Catalogue
+ *
+ * Application lines and the materials named for each line in the
+ * Baba Sons & Khandelwal Udyog company profile.
+ *
+ * This module is the catalogue source of truth for the public site.
+ * An admin portal can replace these arrays later without changing page routes.
+ *
+ * To add a line:
+ *   1. Add an entry to `products`
+ *   2. The slug becomes /products/[slug]
+ *   3. Point relatedSlugs at the closest other lines
  * ============================================================================= */
 
-import type { Product } from "@/types";
+import type { MaterialIndexEntry, Product } from "@/types";
 
 export const products: Product[] = [
-  /* ── Rigid PVC ── */
   {
-    slug: "rigid-pvc",
-    name: "RIGID PVC",
-    icon: "precision_manufacturing",
+    slug: "pvc-agri-swr-pipe",
+    name: "PVC Agri & SWR Pipe",
+    icon: "water_drop",
     shortDescription:
-      "High-modulus compounds for profile extrusion, piping systems, and injection molding applications.",
-    longDescription: `Polymer-X Rigid PVC compounds are engineered for maximum structural performance in demanding industrial environments. Our proprietary formulations deliver exceptional dimensional stability, chemical resistance, and mechanical strength across a wide temperature range.
+      "Resin, stabiliser packs, CPE, modifiers, lubricants, titanium dioxide, and calcite for agricultural and SWR pipe.",
+    longDescription: `Baba Sons and Khandelwal Udyog supply the raw materials listed below for PVC agricultural pipe and SWR pipe, with technical back-up alongside the material.
 
-Each batch undergoes rigorous quality testing including tensile strength analysis, impact resistance evaluation, and accelerated weathering tests. Our compounds meet or exceed all major international standards for building and construction applications.
+Lead and calcium-zinc systems are both listed, including one-pack and super-pack grades. Calcite is offered from Vietnam, Egypt, and Malaysia. Titanium dioxide is offered in rutile and anatase.
 
-Available in custom formulations tailored to your specific application requirements, with technical support from concept through production scale-up.`,
-    specs: [
-      { label: "Density (g/cm³)", value: "1.42 – 1.55" },
-      { label: "Shore Hardness", value: "80D – 85D" },
-      { label: "Tensile Strength (MPa)", value: "45 – 60" },
-      { label: "Vicat Softening (°C)", value: "78 – 85" },
-      { label: "Izod Impact (kJ/m²)", value: "5 – 30" },
-      { label: "Flammability", value: "UL 94 V-0" },
-      { label: "Water Absorption (%)", value: "< 0.04" },
-      { label: "Dielectric Strength (kV/mm)", value: "25 – 40" },
+Grades, packing, and current availability are confirmed when you enquire. This page follows the company profile and does not add specifications that are not printed there.`,
+    materials: [
+      { name: "PVC Resin" },
+      { name: "Lead one pack / Super pack" },
+      { name: "Ca-Zn one pack / Super pack" },
+      { name: "Plasticizers" },
+      { name: "Additives, CPE" },
+      { name: "Impact Modifier" },
+      { name: "Processing Aid" },
+      { name: "Lubricants" },
+      { name: "Titanium Dioxide", detail: "Rutile and anatase" },
+      { name: "Calcite", detail: "Vietnam, Egypt, Malaysia" },
     ],
-    applications: [
-      "Window & door profiles",
-      "Pressure pipe systems (water, gas)",
-      "Electrical conduit & trunking",
-      "Siding & cladding panels",
-      "Structural fittings & connectors",
-      "Industrial sheet & plate",
-    ],
-    compliance: [
-      "ASTM D1784 (Standard Specification for Rigid PVC)",
-      "ISO 1163 (Plastics — Unplasticized PVC)",
-      "EN 12608 (Window profiles)",
-      "NSF/ANSI 61 (Drinking water contact)",
-      "UL 94 V-0 (Flammability)",
-    ],
-    relatedSlugs: ["flexible-pvc", "additives"],
+    relatedSlugs: ["pvc-conduit-pipe", "cpvc"],
   },
-
-  /* ── Flexible PVC ── */
   {
-    slug: "flexible-pvc",
-    name: "FLEXIBLE PVC",
+    slug: "pvc-wire-and-cable",
+    name: "PVC Wire and Cable",
+    icon: "cable",
+    shortDescription:
+      "PVC resin, lead and calcium-zinc stabilisers, plasticisers, titanium dioxide, and calcite for wire and cable compounds.",
+    longDescription: `For PVC wire and cable, the catalogue lists resin, lead stabilisers, calcium-zinc stabilisers, plasticisers, titanium dioxide, and calcite.
+
+Plasticisers named for this line are DOP, DIBP, and DINP. Titanium dioxide is rutile and anatase. Calcite origins are Vietnam, Egypt, and Malaysia.
+
+Ask for the grade and packing you need. Technical data is shared on request.`,
+    materials: [
+      { name: "PVC Resin" },
+      { name: "Lead Stabilizers" },
+      { name: "Ca-Zn Stabilizers" },
+      { name: "Plasticizers", detail: "DOP, DIBP, DINP" },
+      { name: "Titanium Dioxide", detail: "Rutile and anatase" },
+      { name: "Calcite", detail: "Vietnam, Egypt, Malaysia" },
+    ],
+    relatedSlugs: ["tubing-garden-pipe", "pvc-film-panel-floor"],
+  },
+  {
+    slug: "pvc-conduit-pipe",
+    name: "PVC Conduit Pipe",
+    icon: "electrical_services",
+    shortDescription:
+      "Resin, one-pack stabilisers, CPE, brightener, stearic acid, waxes, titanium, and calcite for conduit pipe.",
+    longDescription: `The conduit-pipe line covers resin, lead one pack, calcium-zinc one pack, CPE, brightener, stearic acid, waxes, titanium, and calcite.
+
+Calcite for this line is listed from Vietnam, Egypt, and Malaysia. Use the enquiry form to ask which wax and which brightener grade is available for your conduit formulation.`,
+    materials: [
+      { name: "PVC Resin" },
+      { name: "Lead one pack" },
+      { name: "Ca-Zn one pack" },
+      { name: "CPE" },
+      { name: "Brightener" },
+      { name: "Stearic Acid" },
+      { name: "Waxes" },
+      { name: "Titanium" },
+      { name: "Calcite", detail: "Vietnam, Egypt, Malaysia" },
+    ],
+    relatedSlugs: ["pvc-agri-swr-pipe", "cpvc"],
+  },
+  {
+    slug: "tubing-garden-pipe",
+    name: "Tubing (Garden Pipe)",
+    icon: "sprinkler",
+    shortDescription:
+      "Resin, plasticisers, liquid methyl tin and antimony, a calcium-zinc tin replacement, brighteners, and pigments for garden pipe.",
+    longDescription: `Garden-pipe tubing is listed with resin and the plasticisers DOP, DIBP, and CPW. Stabiliser options are liquid methyl tin or antimony, and a calcium-zinc system offered as a replacement to tin.
+
+Optical brighteners OB and OB-1, and colour pigments, are included on this line. Confirm the pigment shade and the stabiliser route when you enquire.`,
+    materials: [
+      { name: "PVC Resin" },
+      { name: "Plasticizers", detail: "DOP, DIBP, CPW" },
+      { name: "Methyl Tin / Antimony", detail: "Liquid" },
+      { name: "Ca-Zn replacement to tin" },
+      { name: "Brightener", detail: "OB, OB-1" },
+      { name: "Pigments", detail: "Colours" },
+    ],
+    relatedSlugs: ["pvc-wire-and-cable", "pvc-film-panel-floor"],
+  },
+  {
+    slug: "pvc-film-panel-floor",
+    name: "PVC Film, Panel and Floor",
     icon: "layers",
     shortDescription:
-      "Plasticized formulations for wire & cable, medical tubing, and automotive sealing components.",
-    longDescription: `Polymer-X Flexible PVC compounds deliver superior elasticity and durability through precisely controlled plasticizer systems. Our formulations are designed for applications requiring sustained flexibility, excellent electrical insulation, and resistance to oils, chemicals, and UV exposure.
+      "Suspension and paste resin, plasticisers, processing aid, impact modifier, waxes, brighteners, and pigments for film, panel, and flooring.",
+    longDescription: `For PVC film, panel, and flooring, the profile lists both suspension and paste resin. Plasticisers named here are DOP, DIBP, DINP, and DOTP.
 
-We offer both standard and custom flexible PVC compounds, including medical-grade formulations that meet USP Class VI and ISO 10993 biocompatibility requirements. Our wire and cable compounds provide outstanding dielectric properties and long-term thermal stability.
-
-Every compound is engineered with migration-resistant plasticizer systems to ensure consistent performance throughout the product lifecycle.`,
-    specs: [
-      { label: "Elongation at Break (%)", value: "> 250" },
-      { label: "Shore Hardness", value: "60A – 90A" },
-      { label: "Tensile Strength (MPa)", value: "12 – 25" },
-      { label: "Low-Temp Flexibility (°C)", value: "-30 to -40" },
-      { label: "Volume Resistivity (Ω·cm)", value: "> 10¹²" },
-      { label: "Oxygen Index (%)", value: "> 28" },
-      { label: "Tear Strength (N/mm)", value: "30 – 80" },
-      { label: "Compression Set (%)", value: "15 – 35" },
+The same line includes processing aid and impact modifier, Honeywell waxes, paraffin wax, brighteners OB and OB-1, and colour pigments. Tell us the end product — film, panel, or floor — so the grade can be matched.`,
+    materials: [
+      { name: "PVC Resin", detail: "Suspension and paste" },
+      { name: "Plasticizers", detail: "DOP, DIBP, DINP, DOTP" },
+      { name: "Processing Aid & Impact Modifier" },
+      { name: "Honeywell waxes" },
+      { name: "Paraffin wax" },
+      { name: "Brightener", detail: "OB, OB-1" },
+      { name: "Pigments", detail: "Colours" },
     ],
-    applications: [
-      "Wire & cable insulation and jacketing",
-      "Medical tubing (IV lines, catheters)",
-      "Automotive seals & gaskets",
-      "Garden hoses & irrigation tubing",
-      "Flooring & wall coverings",
-      "Inflatable products & protective gear",
-    ],
-    compliance: [
-      "IEC 60502 (Power cables)",
-      "USP Class VI (Medical applications)",
-      "ISO 10993 (Biocompatibility)",
-      "EN 50363 (Insulating compounds)",
-      "REACH / RoHS Compliant",
-    ],
-    relatedSlugs: ["rigid-pvc", "additives"],
+    relatedSlugs: ["tubing-garden-pipe", "pvc-wire-and-cable"],
   },
-
-  /* ── Additives ── */
   {
-    slug: "additives",
-    name: "ADDITIVES",
-    icon: "science",
+    slug: "cpvc",
+    name: "CPVC",
+    icon: "valve",
     shortDescription:
-      "High-performance heat stabilizers, lubricants, and impact modifiers for polymer customization.",
-    longDescription: `Polymer-X Additives are precision-engineered chemical systems that enhance and customize polymer performance. Our additive portfolio includes heat stabilizers, impact modifiers, processing aids, lubricants, UV stabilizers, and flame retardants — each optimized for specific polymer systems and end-use requirements.
+      "Processing aid, impact modifier, FT and oxidised waxes, Honeywell waxes, and pipe and fitting super packs for CPVC.",
+    longDescription: `The CPVC line is listed separately from rigid PVC pipe. It covers processing aid and impact modifier, FT and oxidised waxes, Honeywell waxes, a pipe super pack, and a fitting super pack.
 
-Our technical team works directly with compounders and processors to develop tailored additive packages that solve specific performance challenges. From improving heat aging resistance to enhancing surface finish quality, our additives deliver measurable improvements.
-
-All additive systems are rigorously tested for compatibility, long-term stability, and regulatory compliance across global markets.`,
-    specs: [
-      { label: "Formulation", value: "Custom" },
-      { label: "Compatibility", value: "Global Standards" },
-      { label: "Thermal Stability (°C)", value: "Up to 220" },
-      { label: "UV Resistance (hrs)", value: "> 5000" },
-      { label: "Impact Modifier Loading (%)", value: "5 – 15" },
-      { label: "Processing Aid Efficiency", value: "High" },
-      { label: "Migration Resistance", value: "Excellent" },
-      { label: "Shelf Life (months)", value: "24" },
+Pipe and fitting packs are different entries in the profile. Name which one you need when you ask for a quotation or a technical sheet.`,
+    materials: [
+      { name: "Processing Aid & Impact Modifier" },
+      { name: "FT & Oxidized Waxes" },
+      { name: "Honeywell waxes" },
+      { name: "Pipe Super Pack" },
+      { name: "Fitting Super Pack" },
     ],
-    applications: [
-      "Heat stabilization for extrusion & calendering",
-      "Impact modification for rigid PVC",
-      "Processing aids for improved surface finish",
-      "Lubricant systems for high-speed processing",
-      "UV stabilization for outdoor applications",
-      "Flame retardant packages (halogen-free available)",
-    ],
-    compliance: [
-      "EU Regulation 1907/2006 (REACH)",
-      "RoHS Directive 2011/65/EU",
-      "FDA 21 CFR (Food contact approved)",
-      "GB/T Standards (China market)",
-      "JECFA / WHO Guidelines",
-    ],
-    relatedSlugs: ["rigid-pvc", "flexible-pvc", "sustainable"],
-  },
-
-  /* ── Sustainable Polymers ── */
-  {
-    slug: "sustainable",
-    name: "SUSTAINABLE POLYMERS",
-    icon: "eco",
-    shortDescription:
-      "Bio-based and recycled content polymers designed to reduce environmental impact without performance loss.",
-    longDescription: `Polymer-X Sustainable Polymers represent the future of responsible manufacturing. Our bio-based and recycled-content compounds deliver comparable mechanical and processing performance while significantly reducing carbon footprint and virgin material consumption.
-
-Our sustainable product line includes post-consumer recycled (PCR) PVC compounds, bio-based plasticizer systems, and hybrid formulations that combine recycled and bio-sourced materials. Each product undergoes the same rigorous quality standards as our conventional polymer range.
-
-We provide full lifecycle assessment (LCA) documentation and environmental product declarations (EPDs) to support your sustainability reporting and green building certifications.`,
-    specs: [
-      { label: "Bio-Based Content", value: "Up to 40%" },
-      { label: "Recycled Content", value: "Up to 80%" },
-      { label: "LCA Status", value: "Certified" },
-      { label: "Carbon Reduction", value: "30 – 60%" },
-      { label: "Mechanical Performance", value: "Equivalent" },
-      { label: "Processing Compatibility", value: "Standard Equipment" },
-      { label: "Color Availability", value: "Full Range" },
-      { label: "Min. Order (MT)", value: "5" },
-    ],
-    applications: [
-      "Green building profiles (LEED / BREEAM)",
-      "Sustainable packaging materials",
-      "Eco-certified consumer products",
-      "Circular economy pipe systems",
-      "Recycled-content cable compounds",
-      "Bio-based flooring & interior products",
-    ],
-    compliance: [
-      "ISO 14021 (Environmental labels)",
-      "EN 15804 (EPD for construction)",
-      "ISCC PLUS Certification",
-      "GRS (Global Recycled Standard)",
-      "Cradle to Cradle Certified™",
-    ],
-    relatedSlugs: ["rigid-pvc", "additives"],
+    relatedSlugs: ["pvc-agri-swr-pipe", "pvc-conduit-pipe"],
   },
 ];
 
-/* --------------------------------------------------------------------------
- * Helper — look up product by slug
- * -------------------------------------------------------------------------- */
 export function getProductBySlug(slug: string): Product | undefined {
-  return products.find((p) => p.slug === slug);
+  return products.find((product) => product.slug === slug);
 }
 
-/* --------------------------------------------------------------------------
- * Helper — get all valid slugs (for generateStaticParams)
- * -------------------------------------------------------------------------- */
 export function getAllProductSlugs(): string[] {
-  return products.map((p) => p.slug);
+  return products.map((product) => product.slug);
+}
+
+export function getMaterialCount(): number {
+  return products.reduce((total, product) => total + product.materials.length, 0);
+}
+
+/** One row per material, kept in catalogue order, for search and request tables. */
+export function getMaterialIndex(): MaterialIndexEntry[] {
+  return products.flatMap((product) =>
+    product.materials.map((material, index) => ({
+      id: `${product.slug}-${index}`,
+      name: material.name,
+      detail: material.detail,
+      applicationSlug: product.slug,
+      applicationName: product.name,
+    })),
+  );
+}
+
+export function searchCatalogue(query: string): {
+  products: Product[];
+  materials: MaterialIndexEntry[];
+} {
+  const needle = query.trim().toLowerCase();
+  if (!needle) {
+    return { products, materials: getMaterialIndex() };
+  }
+
+  const matchedProducts = products.filter((product) => {
+    const haystack = [
+      product.name,
+      product.shortDescription,
+      product.longDescription,
+      ...product.materials.flatMap((material) => [material.name, material.detail ?? ""]),
+    ]
+      .join(" ")
+      .toLowerCase();
+    return haystack.includes(needle);
+  });
+
+  const materials = getMaterialIndex().filter((material) => {
+    const haystack = [material.name, material.detail ?? "", material.applicationName]
+      .join(" ")
+      .toLowerCase();
+    return haystack.includes(needle);
+  });
+
+  return { products: matchedProducts, materials };
 }

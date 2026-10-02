@@ -1,52 +1,45 @@
 /* =============================================================================
  * Navigation Data
- * 
- * All navigation links for header and footer.
- * Update these when adding new pages to the site.
  * ============================================================================= */
 
-import type { NavLink, FooterLinkGroup } from "@/types";
+import type { FooterLinkGroup, NavLink } from "@/types";
 
-/* --------------------------------------------------------------------------
- * Header — Primary Navigation
- * -------------------------------------------------------------------------- */
 export const mainNavLinks: NavLink[] = [
-  { label: "Products", href: "/products" },
+  { label: "Catalogue", href: "/products" },
   { label: "About", href: "/about" },
-  { label: "Technical Data", href: "/technical-data" },
-  { label: "Safety (SDS)", href: "/safety" },
+  { label: "Technical data", href: "/technical-data" },
+  { label: "Safety data", href: "/safety" },
   { label: "Contact", href: "/contact" },
 ];
 
-/* --------------------------------------------------------------------------
- * Footer — Link Groups
- * -------------------------------------------------------------------------- */
 export const footerLinkGroups: FooterLinkGroup[] = [
   {
-    title: "Products",
+    title: "Catalogue",
     links: [
-      { label: "Rigid PVC", href: "/products/rigid-pvc" },
-      { label: "Flexible PVC", href: "/products/flexible-pvc" },
-      { label: "Additives", href: "/products/additives" },
-      { label: "Sustainable Polymers", href: "/products/sustainable" },
+      { label: "PVC Agri & SWR Pipe", href: "/products/pvc-agri-swr-pipe" },
+      { label: "PVC Wire and Cable", href: "/products/pvc-wire-and-cable" },
+      { label: "PVC Conduit Pipe", href: "/products/pvc-conduit-pipe" },
+      { label: "Garden Pipe Tubing", href: "/products/tubing-garden-pipe" },
+      { label: "Film, Panel and Floor", href: "/products/pvc-film-panel-floor" },
+      { label: "CPVC", href: "/products/cpvc" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { label: "Technical Data Sheets", href: "/technical-data" },
-      { label: "Safety Data (SDS)", href: "/safety" },
-      { label: "ISO Certifications", href: "/about#certifications" },
-      { label: "Quality Assurance", href: "/about#quality" },
+      { label: "Full catalogue", href: "/products" },
+      { label: "Request technical data", href: "/technical-data" },
+      { label: "Request safety data", href: "/safety" },
+      { label: "Channel partners", href: "/about#partners" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About Us", href: "/about" },
+      { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
-      { label: "Privacy Policy", href: "/privacy-policy" },
-      { label: "Terms of Service", href: "/terms-of-service" },
+      { label: "Privacy policy", href: "/privacy-policy" },
+      { label: "Terms of use", href: "/terms-of-service" },
     ],
   },
 ];

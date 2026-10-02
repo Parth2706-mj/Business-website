@@ -12,13 +12,14 @@ export interface SocialLink {
 
 export interface CompanyInfo {
   name: string;
+  shortName: string;
+  tradeName: string;
   tagline: string;
   description: string;
-  foundedYear: number;
-  email: string;
+  emails: string[];
   phone: string;
-  address: string;
-  certifications: string[];
+  phoneHref: string;
+  channelPartners: string[];
   socialLinks: SocialLink[];
 }
 
@@ -47,6 +48,11 @@ export interface HeroContent {
   secondaryCta: CtaLink;
 }
 
+export interface HeroStat {
+  value: string;
+  label: string;
+}
+
 /* ── Homepage — About / Data Sets ── */
 export interface DataSetCard {
   id: string;
@@ -65,10 +71,10 @@ export interface ServiceItem {
   href: string;
 }
 
-/* ── Products ── */
-export interface ProductSpec {
-  label: string;
-  value: string;
+/* ── Catalogue ── */
+export interface MaterialLine {
+  name: string;
+  detail?: string;
 }
 
 export interface Product {
@@ -77,37 +83,23 @@ export interface Product {
   icon: string;
   shortDescription: string;
   longDescription: string;
-  specs: ProductSpec[];
-  applications: string[];
-  compliance: string[];
+  materials: MaterialLine[];
   relatedSlugs: string[];
 }
 
-/* ── Pages (about, safety, technical-data, contact) ── */
-export interface DocumentEntry {
-  title: string;
-  description?: string;
-  category?: string;
-  format?: string;
-  size?: string;
-  updated?: string;
-  href?: string;
-}
-
-export interface TeamMember {
+export interface MaterialIndexEntry {
+  id: string;
   name: string;
-  role: string;
-  description: string;
+  detail?: string;
+  applicationSlug: string;
+  applicationName: string;
 }
 
-export interface Milestone {
-  year: number;
-  title: string;
-  description: string;
-}
-
+/* ── Pages ── */
 export interface PageSeo {
   title: string;
   description: string;
   keywords?: string[];
 }
+
+export type EnquiryIntent = "general" | "quote" | "tds" | "sds";
