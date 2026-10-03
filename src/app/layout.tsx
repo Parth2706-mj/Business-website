@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Inter, Archivo_Narrow } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { pageSeo } from "@/data/pages";
 
 /* ── Font Instances ── */
 const geistSans = Geist({
@@ -29,9 +30,12 @@ const archivoNarrow = Archivo_Narrow({
 
 /* ── SEO Metadata ── */
 export const metadata: Metadata = {
-  title: "POLYMER-X INDUSTRIAL | Engineering Excellence in Polymer Science",
-  description:
-    "Industrial leader in high-performance polymer science and chemical engineering solutions. ISO 9001:2015 certified manufacturing.",
+  title: {
+    default: pageSeo.home.title,
+    template: "%s",
+  },
+  description: pageSeo.home.description,
+  keywords: pageSeo.home.keywords,
 };
 
 export default function RootLayout({
