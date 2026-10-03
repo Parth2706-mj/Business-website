@@ -105,14 +105,15 @@ Optical brighteners OB and OB-1, and colour pigments, are included on this line.
   },
   {
     slug: "pvc-film-panel-floor",
-    name: "PVC Film, Panel and Floor",
+    name: "PVC Film, UPVC Panel and Floor",
     icon: "layers",
     shortDescription:
-      "Suspension and paste resin, plasticisers, processing aid, impact modifier, waxes, brighteners, and pigments for film, panel, and flooring.",
-    longDescription: `For PVC film, panel, and flooring, the profile lists both suspension and paste resin. Plasticisers named here are DOP, DIBP, DINP, and DOTP.
+      "Suspension and paste resin, UPVC panel, plasticisers, processing aid, impact modifier, waxes, brighteners, and pigments for film, panel, and flooring.",
+    longDescription: `This line covers PVC film, UPVC panel, and flooring. The profile lists both suspension and paste resin. Plasticisers named here are DOP, DIBP, DINP, and DOTP.
 
-The same line includes processing aid and impact modifier, Honeywell waxes, paraffin wax, brighteners OB and OB-1, and colour pigments. Tell us the end product — film, panel, or floor — so the grade can be matched.`,
+The same line includes processing aid and impact modifier, Honeywell waxes, paraffin wax, brighteners OB and OB-1, and colour pigments. Tell us the end product — film, UPVC panel, or floor — so the grade can be matched.`,
     materials: [
+      { name: "UPVC Panel" },
       { name: "PVC Resin", detail: "Suspension and paste" },
       { name: "Plasticizers", detail: "DOP, DIBP, DINP, DOTP" },
       { name: "Processing Aid & Impact Modifier" },
@@ -128,11 +129,14 @@ The same line includes processing aid and impact modifier, Honeywell waxes, para
     name: "CPVC",
     icon: "valve",
     shortDescription:
-      "Processing aid, impact modifier, FT and oxidised waxes, Honeywell waxes, and pipe and fitting super packs for CPVC.",
-    longDescription: `The CPVC line is listed separately from rigid PVC pipe. It covers processing aid and impact modifier, FT and oxidised waxes, Honeywell waxes, a pipe super pack, and a fitting super pack.
+      "CPVC resin, pipe and fitting, processing aid, impact modifier, waxes, and pipe and fitting super packs.",
+    longDescription: `The CPVC line covers CPVC resin, CPVC pipe, and CPVC fitting, together with processing aid and impact modifier, FT and oxidised waxes, Honeywell waxes, a pipe super pack, and a fitting super pack.
 
-Pipe and fitting packs are different entries in the profile. Name which one you need when you ask for a quotation or a technical sheet.`,
+Name whether you need resin, pipe, or fitting when you ask for a quotation or a technical sheet.`,
     materials: [
+      { name: "CPVC Resin" },
+      { name: "CPVC Pipe" },
+      { name: "CPVC Fitting" },
       { name: "Processing Aid & Impact Modifier" },
       { name: "FT & Oxidized Waxes" },
       { name: "Honeywell waxes" },

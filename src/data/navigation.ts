@@ -8,7 +8,6 @@ export const mainNavLinks: NavLink[] = [
   { label: "Catalogue", href: "/products" },
   { label: "About", href: "/about" },
   { label: "Technical data", href: "/technical-data" },
-  { label: "Safety data", href: "/safety" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -20,7 +19,7 @@ export const footerLinkGroups: FooterLinkGroup[] = [
       { label: "PVC Wire and Cable", href: "/products/pvc-wire-and-cable" },
       { label: "PVC Conduit Pipe", href: "/products/pvc-conduit-pipe" },
       { label: "Garden Pipe Tubing", href: "/products/tubing-garden-pipe" },
-      { label: "Film, Panel and Floor", href: "/products/pvc-film-panel-floor" },
+      { label: "Film, UPVC Panel and Floor", href: "/products/pvc-film-panel-floor" },
       { label: "CPVC", href: "/products/cpvc" },
     ],
   },
@@ -29,7 +28,6 @@ export const footerLinkGroups: FooterLinkGroup[] = [
     links: [
       { label: "Full catalogue", href: "/products" },
       { label: "Request technical data", href: "/technical-data" },
-      { label: "Request safety data", href: "/safety" },
       { label: "Channel partners", href: "/about#partners" },
     ],
   },

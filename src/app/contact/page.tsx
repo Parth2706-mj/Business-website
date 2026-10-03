@@ -18,22 +18,39 @@ export default function ContactPage() {
       <PageHero label={heroLabel} heading={heroHeading} body={heroBody} />
 
       <section className="py-20 px-4 md:px-16 border-b border-outline-variant">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {channels.map((channel) => (
-            <a
-              key={channel.label}
-              href={channel.href}
-              className="border border-outline bg-white p-6 hover:border-primary transition-colors"
-            >
-              <div className="w-10 h-10 bg-primary flex items-center justify-center mb-5">
-                <span className="material-symbols-outlined text-on-primary text-lg">{channel.icon}</span>
-              </div>
-              <h2 className="font-label text-xs font-semibold uppercase tracking-[0.08em] text-outline mb-2">
-                {channel.label}
-              </h2>
-              <p className="font-headline text-lg font-semibold text-primary">{channel.value}</p>
-            </a>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {channels.map((channel) => {
+            const card = (
+              <>
+                <div className="w-10 h-10 bg-primary flex items-center justify-center mb-5">
+                  <span className="material-symbols-outlined text-on-primary text-lg">{channel.icon}</span>
+                </div>
+                <h2 className="font-label text-xs font-semibold uppercase tracking-[0.08em] text-outline mb-2">
+                  {channel.label}
+                </h2>
+                <p className="font-headline text-lg font-semibold text-primary">{channel.value}</p>
+              </>
+            );
+            const className = "border border-outline bg-white p-6 hover:border-primary transition-colors block";
+            if (channel.icon === "location_on") {
+              return (
+                <div key={channel.value} className={className}>
+                  {card}
+                </div>
+              );
+            }
+            return (
+              <a
+                key={`${channel.label}-${channel.value}`}
+                href={channel.href}
+                target={channel.href.startsWith("http") ? "_blank" : undefined}
+                rel={channel.href.startsWith("http") ? "noreferrer" : undefined}
+                className={className}
+              >
+                {card}
+              </a>
+            );
+          })}
         </div>
       </section>
 

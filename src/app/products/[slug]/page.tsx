@@ -107,13 +107,19 @@ export default async function ProductDetailPage({
                   ))}
                 </dd>
               </div>
-              <div className="px-6 py-4">
-                <dt className="font-label text-[11px] uppercase tracking-[0.08em] text-outline mb-1">Mobile</dt>
-                <dd>
-                  <a href={company.phoneHref} className="font-label text-sm font-bold text-primary">
-                    {company.phone}
-                  </a>
+              <div className="px-6 py-4 border-b border-outline-variant">
+                <dt className="font-label text-[11px] uppercase tracking-[0.08em] text-outline mb-2">Phone</dt>
+                <dd className="space-y-2">
+                  {company.phones.map((phone) => (
+                    <a key={phone.href} href={phone.href} className="block font-label text-sm font-bold text-primary">
+                      {phone.label}: {phone.display}
+                    </a>
+                  ))}
                 </dd>
+              </div>
+              <div className="px-6 py-4">
+                <dt className="font-label text-[11px] uppercase tracking-[0.08em] text-outline mb-1">Locations</dt>
+                <dd className="font-body text-sm text-on-surface">{company.locations.join(" · ")}</dd>
               </div>
             </dl>
             <div className="border-t border-outline-variant p-6 space-y-3">
@@ -128,12 +134,6 @@ export default async function ProductDetailPage({
                 className="block w-full border border-primary text-primary py-3 font-label text-xs font-semibold uppercase tracking-[0.08em] text-center hover:bg-primary hover:text-on-primary transition-all"
               >
                 Request technical data
-              </Link>
-              <Link
-                href={`/contact?intent=sds&application=${product.slug}`}
-                className="block w-full border border-outline text-on-surface py-3 font-label text-xs font-semibold uppercase tracking-[0.08em] text-center hover:border-primary hover:text-primary transition-all"
-              >
-                Request safety data
               </Link>
             </div>
           </div>
@@ -172,7 +172,7 @@ export default async function ProductDetailPage({
       )}
 
       <CTABanner
-        heading="Same desk for the next line"
+        heading="Another line, same enquiry"
         body="If the material you need sits on another application, open the catalogue and send one enquiry."
         ctaLabel="Back to catalogue"
         ctaHref="/products"

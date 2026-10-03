@@ -10,6 +10,12 @@ export interface SocialLink {
   url: string;
 }
 
+export interface PhoneLine {
+  label: string;
+  display: string;
+  href: string;
+}
+
 export interface CompanyInfo {
   name: string;
   shortName: string;
@@ -17,8 +23,11 @@ export interface CompanyInfo {
   tagline: string;
   description: string;
   emails: string[];
-  phone: string;
-  phoneHref: string;
+  phones: PhoneLine[];
+  whatsappDisplay: string;
+  whatsappHref: string;
+  locations: string[];
+  since: number;
   channelPartners: string[];
   socialLinks: SocialLink[];
 }

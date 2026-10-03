@@ -1,9 +1,5 @@
 /* =============================================================================
  * Company Information
- *
- * Taken from the Baba Sons & Khandelwal Udyog company profile.
- * Fields that are not on that profile (address, certifications, year founded)
- * are omitted until they are supplied.
  * ============================================================================= */
 
 import type { CompanyInfo } from "@/types";
@@ -14,11 +10,17 @@ export const company: CompanyInfo = {
   tradeName: "Khandelwal Udyog",
   tagline: "Single Window Service Provider",
   description:
-    "Chemicals with technical back-up for PVC and CPVC processing — agricultural and SWR pipe, conduit, wire and cable, garden tubing, film, panel, flooring, and CPVC.",
+    "Chemicals with technical back-up for PVC and CPVC processing — agricultural and SWR pipe, conduit, wire and cable, garden tubing, film, UPVC panel, flooring, and CPVC.",
 
   emails: ["Babasons9@gmail.com", "Chemicalwala9@gmail.com"],
-  phone: "+91 94133 03649",
-  phoneHref: "tel:+919413303649",
+  phones: [
+    { label: "Office", display: "+91 94686 43649", href: "tel:+919468643649" },
+    { label: "Mobile", display: "+91 94133 03649", href: "tel:+919413303649" },
+  ],
+  whatsappDisplay: "+91 94686 43649",
+  whatsappHref: "https://wa.me/919468643649",
+  locations: ["Alwar MIA", "Jaipur VKI"],
+  since: 2004,
 
   channelPartners: [
     "Indofil / Reagans India",

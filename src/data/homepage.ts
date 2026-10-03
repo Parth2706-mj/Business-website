@@ -25,7 +25,7 @@ export const heroStats: HeroStat[] = [
 export const aboutSectionContent = {
   label: "Baba Sons & Khandelwal Udyog",
   heading: "One window for the formulation",
-  body: "The company profile is built as a single window: resin, stabilisers, plasticisers, modifiers, waxes, pigments, titanium dioxide, and calcite, listed against the application you actually run. Technical back-up sits with the supply, not as a separate desk.",
+  body: "The company profile is built as a single window: resin, stabilisers, plasticisers, modifiers, waxes, pigments, titanium dioxide, and calcite, listed against the application you actually run. Technical back-up sits with the supply.",
   cta: { label: "Read how we work", href: "/about" },
 } as const;
 
@@ -64,7 +64,7 @@ export const productsSectionContent = {
 export const techSupportContent = {
   label: "Technical back-up",
   heading: "Ask for the sheet before you run it",
-  body: "Technical data and safety data are issued on request for the materials in the catalogue. Tell us the application line and the material, and the enquiry goes to both published email addresses.",
+  body: "Technical data is shared by the people who supply the material. Tell us the application line and the grade, and the reply goes out on priority.",
 } as const;
 
 export const techStats: StatItem[] = [
@@ -75,11 +75,11 @@ export const techStats: StatItem[] = [
 export const serviceDirectory: ServiceItem[] = [
   { name: "PVC pipe materials", href: "/products/pvc-agri-swr-pipe" },
   { name: "Wire and cable materials", href: "/products/pvc-wire-and-cable" },
-  { name: "Film, panel and floor", href: "/products/pvc-film-panel-floor" },
+  { name: "Film, UPVC panel and floor", href: "/products/pvc-film-panel-floor" },
   { name: "Request technical data", href: "/technical-data" },
 ];
 
 export const contactSectionContent = {
   heading: "Tell us the line and the material",
-  body: "Use the form to open an email to Babasons9@gmail.com and Chemicalwala9@gmail.com, or call the mobile number on this page. Include the application and the grade if you already know it.",
+  body: "Write to both email addresses, call the office number first, or message that same office number on WhatsApp. We are at Alwar MIA and Jaipur VKI, and enquiries are taken on priority.",
 } as const;

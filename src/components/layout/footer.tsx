@@ -26,9 +26,20 @@ export function Footer() {
                 {email}
               </a>
             ))}
-            <a href={company.phoneHref} className="block font-label text-xs text-on-primary/80 hover:text-white">
-              {company.phone}
+            <a
+              href={company.whatsappHref}
+              target="_blank"
+              rel="noreferrer"
+              className="block font-label text-xs text-on-primary/80 hover:text-white"
+            >
+              WhatsApp {company.whatsappDisplay}
             </a>
+            {company.phones.map((phone) => (
+              <a key={phone.href} href={phone.href} className="block font-label text-xs text-on-primary/80 hover:text-white">
+                {phone.label}: {phone.display}
+              </a>
+            ))}
+            <p className="font-label text-xs text-on-primary/80">{company.locations.join(" · ")}</p>
           </div>
         </div>
 

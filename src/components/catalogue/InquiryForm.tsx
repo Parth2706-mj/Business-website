@@ -13,20 +13,21 @@ const intentCopy: Record<EnquiryIntent, { title: string; submit: string }> = {
   sds: { title: "Safety data request", submit: "Prepare safety data email" },
 };
 
-function readIntent(value: string | null): EnquiryIntent {
+function readIntent(value: string | null, fallback: EnquiryIntent): EnquiryIntent {
   if (value === "quote" || value === "tds" || value === "sds" || value === "general") {
     return value;
   }
-  return "general";
+  return fallback;
 }
 
 interface InquiryFormProps {
   idPrefix?: string;
+  defaultIntent?: EnquiryIntent;
 }
 
-export function InquiryForm({ idPrefix = "enquiry" }: InquiryFormProps) {
+export function InquiryForm({ idPrefix = "enquiry", defaultIntent = "general" }: InquiryFormProps) {
   const searchParams = useSearchParams();
-  const intent = readIntent(searchParams.get("intent"));
+  const intent = readIntent(searchParams.get("intent"), defaultIntent);
   const presetApplication = searchParams.get("application") ?? "";
   const presetMaterial = searchParams.get("material") ?? "";
   const copy = intentCopy[intent];
@@ -76,19 +77,21 @@ export function InquiryForm({ idPrefix = "enquiry" }: InquiryFormProps) {
     }
 
     const product = products.find((item) => item.slug === application);
+    const applicationLabel =
+      application === "other" ? "Other application chemicals" : product?.name ?? "";
     const lines = [
       `Name: ${name}`,
       `Email: ${email}`,
       organisation ? `Organisation: ${organisation}` : "",
       phone ? `Phone: ${phone}` : "",
-      product ? `Application: ${product.name}` : "",
+      applicationLabel ? `Application: ${applicationLabel}` : "",
       material ? `Material: ${material}` : "",
       "",
       message,
     ].filter((line, index, all) => line !== "" || all[index - 1] !== "");
 
     const text = lines.join("\n");
-    const subject = `${copy.title}${product ? ` — ${product.name}` : ""}${material ? ` — ${material}` : ""}`;
+    const subject = `${copy.title}${applicationLabel ? ` — ${applicationLabel}` : ""}${material ? ` — ${material}` : ""}`;
     const href = `mailto:${company.emails.join(",")}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
 
     setError("");
@@ -137,6 +140,15 @@ export function InquiryForm({ idPrefix = "enquiry" }: InquiryFormProps) {
             autoComplete="email"
             className={inputClass}
           />
+          <a
+            href={company.whatsappHref}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-3 inline-flex items-center gap-2 font-label text-xs font-semibold uppercase tracking-[0.08em] text-primary"
+          >
+            <span className="material-symbols-outlined text-base">chat</span>
+            WhatsApp office {company.whatsappDisplay}
+          </a>
         </Field>
       </div>
 
@@ -174,6 +186,7 @@ export function InquiryForm({ idPrefix = "enquiry" }: InquiryFormProps) {
               {product.name}
             </option>
           ))}
+          <option value="other">Other — other application chemicals</option>
         </select>
       </Field>
 

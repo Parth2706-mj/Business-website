@@ -36,7 +36,7 @@ export default function AboutPage() {
       <section className="py-20 px-4 md:px-16 bg-surface-container-low border-b border-outline-variant">
         <div className="mb-12">
           <span className="font-label text-xs font-semibold uppercase tracking-[0.08em] text-primary block mb-4">
-            How the desk works
+            How we work
           </span>
           <h2 className="font-headline text-2xl font-semibold text-primary uppercase leading-tight">
             Four things the profile commits to
@@ -129,27 +129,41 @@ export default function AboutPage() {
       <section className="py-20 px-4 md:px-16 border-b border-outline-variant">
         <div className="mb-8">
           <span className="font-label text-xs font-semibold uppercase tracking-[0.08em] text-primary block mb-4">
-            Reach the desk
+            Contact us
           </span>
           <h2 className="font-headline text-2xl font-semibold text-primary uppercase leading-tight">
             Published contact
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {company.emails.map((email) => (
             <a key={email} href={`mailto:${email}`} className="border border-outline p-6 hover:border-primary">
               <span className="font-label text-[11px] uppercase tracking-[0.08em] text-outline block mb-2">Email</span>
               <span className="font-label text-sm font-bold text-primary">{email}</span>
             </a>
           ))}
-          <a href={company.phoneHref} className="border border-outline p-6 hover:border-primary">
-            <span className="font-label text-[11px] uppercase tracking-[0.08em] text-outline block mb-2">Mobile</span>
-            <span className="font-label text-sm font-bold text-primary">{company.phone}</span>
+          <a
+            href={company.whatsappHref}
+            target="_blank"
+            rel="noreferrer"
+            className="border border-outline p-6 hover:border-primary"
+          >
+            <span className="font-label text-[11px] uppercase tracking-[0.08em] text-outline block mb-2">WhatsApp</span>
+            <span className="font-label text-sm font-bold text-primary">{company.whatsappDisplay}</span>
           </a>
+          {company.phones.map((phone) => (
+            <a key={phone.href} href={phone.href} className="border border-outline p-6 hover:border-primary">
+              <span className="font-label text-[11px] uppercase tracking-[0.08em] text-outline block mb-2">{phone.label}</span>
+              <span className="font-label text-sm font-bold text-primary">{phone.display}</span>
+            </a>
+          ))}
+          {company.locations.map((location) => (
+            <div key={location} className="border border-outline p-6">
+              <span className="font-label text-[11px] uppercase tracking-[0.08em] text-outline block mb-2">Location</span>
+              <span className="font-label text-sm font-bold text-primary">{location}</span>
+            </div>
+          ))}
         </div>
-        <p className="font-body text-sm text-on-surface-variant mt-6 max-w-2xl leading-relaxed">
-          A street address is not printed on the company profile, so it is not shown here. Send the next change — address, extra grades, or a photograph — and it can be added without rebuilding the catalogue structure.
-        </p>
       </section>
 
       <CTABanner

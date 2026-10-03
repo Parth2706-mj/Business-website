@@ -23,29 +23,57 @@ export function ContactSection() {
 
         <div className="space-y-6">
           {company.emails.map((email, index) => (
-            <a key={email} href={`mailto:${email}`} className="flex items-center gap-4 group">
+            <div key={email} className="flex flex-col sm:flex-row sm:items-center gap-4">
+              <a href={`mailto:${email}`} className="flex items-center gap-4 group">
+                <div className="w-12 h-12 flex items-center justify-center border border-outline group-hover:border-primary group-hover:bg-primary-fixed/30 transition-colors">
+                  <span className="material-symbols-outlined text-primary">mail</span>
+                </div>
+                <div>
+                  <div className="font-label text-[11px] font-semibold uppercase tracking-[0.08em] text-outline">
+                    {index === 0 ? company.shortName : company.tradeName}
+                  </div>
+                  <div className="font-label text-sm font-bold text-on-surface">{email}</div>
+                </div>
+              </a>
+              {index === 0 && (
+                <a
+                  href={company.whatsappHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 border border-primary px-3 py-2 font-label text-xs font-semibold uppercase tracking-[0.08em] text-primary"
+                >
+                  <span className="material-symbols-outlined text-base">chat</span>
+                  WhatsApp
+                </a>
+              )}
+            </div>
+          ))}
+          {company.phones.map((phone) => (
+            <a key={phone.href} href={phone.href} className="flex items-center gap-4 group">
               <div className="w-12 h-12 flex items-center justify-center border border-outline group-hover:border-primary group-hover:bg-primary-fixed/30 transition-colors">
-                <span className="material-symbols-outlined text-primary">mail</span>
+                <span className="material-symbols-outlined text-primary">call</span>
               </div>
               <div>
                 <div className="font-label text-[11px] font-semibold uppercase tracking-[0.08em] text-outline">
-                  {index === 0 ? company.shortName : company.tradeName}
+                  {phone.label}
                 </div>
-                <div className="font-label text-sm font-bold text-on-surface">{email}</div>
+                <div className="font-label text-sm font-bold text-on-surface">{phone.display}</div>
               </div>
             </a>
           ))}
-          <a href={company.phoneHref} className="flex items-center gap-4 group">
-            <div className="w-12 h-12 flex items-center justify-center border border-outline group-hover:border-primary group-hover:bg-primary-fixed/30 transition-colors">
-              <span className="material-symbols-outlined text-primary">call</span>
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 flex items-center justify-center border border-outline">
+              <span className="material-symbols-outlined text-primary">location_on</span>
             </div>
             <div>
               <div className="font-label text-[11px] font-semibold uppercase tracking-[0.08em] text-outline">
-                Mobile
+                Locations
               </div>
-              <div className="font-label text-sm font-bold text-on-surface">{company.phone}</div>
+              <div className="font-label text-sm font-bold text-on-surface">
+                {company.locations.join(" · ")}
+              </div>
             </div>
-          </a>
+          </div>
         </div>
       </div>
 
