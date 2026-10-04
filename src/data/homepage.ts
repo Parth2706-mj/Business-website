@@ -1,122 +1,85 @@
 /* =============================================================================
  * Homepage Content
- * 
- * All static text for the homepage sections.
- * Content is organized by section for easy editing.
+ *
+ * Copy follows the Baba Sons & Khandelwal Udyog company profile.
  * ============================================================================= */
 
-import type { HeroContent, DataSetCard, StatItem, ServiceItem } from "@/types";
+import type { DataSetCard, HeroContent, HeroStat, ServiceItem, StatItem } from "@/types";
 
-/* --------------------------------------------------------------------------
- * Hero Section
- * -------------------------------------------------------------------------- */
 export const heroContent: HeroContent = {
-  badge: "ISO 9001:2015 Certified Manufacturing",
-  headline: "THE ARCHITECTURE OF POLYMERS",
+  badge: "Single Window Service Provider",
+  headline: "Chemicals with technical back-up",
   subtext:
-    "Engineering industrial-grade chemical solutions with molecular precision. Our polymers define the structural integrity of modern infrastructure through advanced material science.",
-  primaryCta: { label: "VIEW SPECIFICATIONS", href: "/products" },
-  secondaryCta: { label: "TECHNICAL SUPPORT", href: "/technical-data" },
+    "Baba Sons and Khandelwal Udyog supply PVC and CPVC raw materials for pipe, wire and cable, film, panel, flooring, and masterbatches — and stay with you on the technical side of the formulation.",
+  primaryCta: { label: "View catalogue", href: "/products" },
+  secondaryCta: { label: "Send an enquiry", href: "/contact" },
 };
 
-/* --------------------------------------------------------------------------
- * About / Engineering Excellence Section
- * -------------------------------------------------------------------------- */
+export const heroStats: HeroStat[] = [
+  { value: "7", label: "Application lines" },
+  { value: "2004", label: "Supplying since" },
+  { value: "PVC", label: "Pipe, cable, film" },
+  { value: "CPVC", label: "Pipe and fitting packs" },
+];
+
 export const aboutSectionContent = {
-  /** Label shown above the heading */
-  label: "ESTABLISHED 1984",
-  /** Section heading */
-  heading: "ENGINEERING EXCELLENCE",
-  /** Paragraph text */
-  body: "At POLYMER-X, we don't just manufacture chemicals; we engineer the building blocks of progress. Our laboratory-to-line approach ensures that every gram of PVC compound meets the most stringent industrial tolerances.",
-  /** CTA link */
-  cta: { label: "LEARN ABOUT OUR PROCESS", href: "/about" },
+  label: "Baba Sons & Khandelwal Udyog",
+  heading: "One window for the formulation",
+  body: "The company profile is built as a single window: resin, stabilisers, plasticisers, modifiers, waxes, pigments, titanium dioxide, and calcite, listed against the application you actually run. Technical back-up sits with the supply.",
+  cta: { label: "Read how we work", href: "/about" },
 } as const;
 
-/** The 4 data-set cards displayed in the About grid. */
 export const dataSets: DataSetCard[] = [
   {
-    id: "DATA_SET_01",
-    title: "MOLECULAR STABILITY",
+    id: "01",
+    title: "Single window",
     description:
-      "Enhanced thermal stability additives for high-temperature industrial applications, ensuring longevity under stress.",
+      "One enquiry covers the chemicals named for agri and SWR pipe, conduit, wire and cable, garden tubing, film, panel, flooring, CPVC, and masterbatches.",
   },
   {
-    id: "DATA_SET_02",
-    title: "IMPACT RESISTANCE",
+    id: "02",
+    title: "Technical back-up",
     description:
-      "Proprietary toughening agents that increase material ductility without compromising structural rigidity.",
+      "Materials are offered with technical support for the line you are running, from stabiliser choice through wax and pigment.",
   },
   {
-    id: "DATA_SET_03",
-    title: "UV INTEGRITY",
-    description:
-      "Advanced solar radiation shielding integrated at the polymer backbone level for extreme exposure environments.",
+    id: "03",
+    title: "Two locations",
+    description: "Enquiries are taken from Alwar MIA and Jaipur VKI, and the reply goes out on priority.",
   },
   {
-    id: "DATA_SET_04",
-    title: "FLAME RETARDANCY",
+    id: "04",
+    title: "Named grades",
     description:
-      "Critical safety-spec polymers designed to exceed UL-94 standards for industrial fire safety compliance.",
+      "Where the profile names a grade or origin — DOP, DOTP, OB-1, rutile, or calcite from Vietnam, Egypt, and Malaysia — it is listed that way on the site.",
   },
 ];
 
-/* --------------------------------------------------------------------------
- * Product Categories Section
- * -------------------------------------------------------------------------- */
 export const productsSectionContent = {
-  label: "CATALOG_v4.2",
-  heading: "PRODUCT CATEGORIES",
-  entryCount: "TOTAL ENTRIES: 154",
+  label: "Company catalogue",
+  heading: "Application lines",
 } as const;
 
-/* --------------------------------------------------------------------------
- * Technical Support Section
- * -------------------------------------------------------------------------- */
 export const techSupportContent = {
-  label: "OPERATIONAL STANDARDS",
-  heading: "CERTIFIED PRECISION",
-  body: "Our engineering support team provides end-to-end technical assistance, from initial material selection to full-scale production optimization. We operate with ISO 9001:2015 certification across all manufacturing facilities.",
+  label: "Technical back-up",
+  heading: "Ask for the sheet before you run it",
+  body: "Technical data is shared by the people who supply the material. Tell us the application line and the grade, and the reply goes out on priority.",
 } as const;
 
-/** Stats shown in the Technical Support section. */
 export const techStats: StatItem[] = [
-  { value: "24/7", label: "TECHNICAL HOTLINE" },
-  { value: "ASTM", label: "TESTING COMPLIANCE" },
+  { value: "7", label: "Application lines" },
+  { value: "Direct", label: "Phone and email" },
 ];
 
-/** Services listed in the service directory. */
 export const serviceDirectory: ServiceItem[] = [
-  { name: "Rheological Analysis", href: "/technical-data" },
-  { name: "Custom Compounding", href: "/contact" },
-  { name: "Color Matching Services", href: "/contact" },
-  { name: "Regulatory Compliance Docs", href: "/safety" },
+  { name: "PVC pipe materials", href: "/products/pvc-agri-swr-pipe" },
+  { name: "Wire and cable materials", href: "/products/pvc-wire-and-cable" },
+  { name: "Film, UPVC panel and floor", href: "/products/pvc-film-panel-floor" },
+  { name: "Masterbatches", href: "/products/masterbatches" },
+  { name: "Request technical data", href: "/technical-data" },
 ];
 
-/* --------------------------------------------------------------------------
- * Industry Partners Section
- * -------------------------------------------------------------------------- */
-export const industryPartners: string[] = [
-  "GLOBAL_STEEL",
-  "CHEM_TECH",
-  "AERO_MAT",
-  "NEXUS_MFG",
-  "INFRA_STRUC",
-];
-
-/* --------------------------------------------------------------------------
- * Contact Section (homepage version)
- * -------------------------------------------------------------------------- */
 export const contactSectionContent = {
-  heading: "INITIATE TECHNICAL CONSULTATION",
-  body: "Discuss your project requirements with our engineering staff. We provide detailed material specifications and supply chain solutions for global manufacturing operations.",
-  /** Dropdown options for the application field */
-  applicationOptions: [
-    "Automotive & Transportation",
-    "Construction & Infrastructure",
-    "Electronics & Electrical",
-    "Medical & Healthcare",
-    "Packaging & Consumer Goods",
-    "Industrial & Manufacturing",
-  ],
+  heading: "Tell us the line and the material",
+  body: "Write to both email addresses, call the office number first, or message that same office number on WhatsApp. We are at Alwar MIA and Jaipur VKI, and enquiries are taken on priority.",
 } as const;

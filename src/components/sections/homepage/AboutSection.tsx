@@ -61,11 +61,11 @@ export function AboutSection() {
                 <div className="flex items-center gap-3 mb-4">
                   <span className="w-8 h-8 bg-primary-fixed flex items-center justify-center">
                     <span className="font-label text-[10px] font-bold text-primary">
-                      {ds.id.split("_")[2]}
+                      {ds.id}
                     </span>
                   </span>
                   <span className="font-label text-[11px] font-medium text-outline uppercase tracking-[0.08em]">
-                    {ds.id}
+                    Service
                   </span>
                 </div>
                 <h3 className="font-headline text-xl font-semibold mb-4 text-on-surface group-hover:text-primary transition-colors">
