@@ -151,7 +151,7 @@ export function CatalogueExplorer() {
               }`}
             >
               <div className="md:col-span-4 flex items-center gap-3 font-body text-sm text-on-surface">
-                <CataloguePhoto image={material.image} className="h-10 w-10 shrink-0" sizes="40px" />
+                <CataloguePhoto image={material.image} className="h-10 w-10 shrink-0" sizes="40px" decorative />
                 <span>{material.name}</span>
               </div>
               <div className="md:col-span-3 font-label text-xs text-outline">{material.detail ?? "—"}</div>

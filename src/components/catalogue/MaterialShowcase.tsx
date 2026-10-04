@@ -57,7 +57,7 @@ export function MaterialShowcase({ product }: { product: Product }) {
                 selected ? "border-primary" : "border-outline-variant hover:border-primary"
               }`}
             >
-              <CataloguePhoto image={item.image} className="h-16 w-24" sizes="96px" />
+              <CataloguePhoto image={item.image} className="h-16 w-24" sizes="96px" decorative />
             </button>
           );
         })}
@@ -79,7 +79,7 @@ export function MaterialShowcase({ product }: { product: Product }) {
                 aria-pressed={selected}
                 className="flex flex-1 items-center gap-3 text-left cursor-pointer"
               >
-                <CataloguePhoto image={item.image} className="h-14 w-14 shrink-0" sizes="56px" />
+                <CataloguePhoto image={item.image} className="h-14 w-14 shrink-0" sizes="56px" decorative />
                 <span>
                   <span className="block font-body text-sm text-on-surface">{item.name}</span>
                   {item.detail && (

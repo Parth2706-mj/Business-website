@@ -8,6 +8,7 @@ interface CataloguePhotoProps {
   priority?: boolean;
   zoom?: boolean;
   showCredit?: boolean;
+  decorative?: boolean;
 }
 
 export function CataloguePhoto({
@@ -17,12 +18,13 @@ export function CataloguePhoto({
   priority = false,
   zoom = false,
   showCredit = false,
+  decorative = false,
 }: CataloguePhotoProps) {
   return (
     <div className={`relative overflow-hidden bg-surface-container-high ${className}`}>
       <Image
         src={image.src}
-        alt={image.alt}
+        alt={decorative ? "" : image.alt}
         fill
         sizes={sizes}
         priority={priority}
