@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { mainNavLinks } from "@/data/navigation";
@@ -27,13 +28,15 @@ export function Header() {
           scrolled ? "shadow-md" : ""
         }`}
       >
-        <Link href="/" className="leading-none shrink-0">
-          <span className="font-headline text-lg md:text-xl font-bold tracking-tight text-primary block">
-            {company.shortName}
-          </span>
-          <span className="font-label text-[10px] uppercase tracking-[0.14em] text-secondary block">
-            {company.tradeName}
-          </span>
+        <Link href="/" className="shrink-0 flex items-center" aria-label={company.name}>
+          <Image
+            src="/brand/logo-mark.png"
+            alt=""
+            width={1210}
+            height={566}
+            priority
+            className="h-12 w-auto"
+          />
         </Link>
 
         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
