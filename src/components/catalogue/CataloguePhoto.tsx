@@ -7,7 +7,6 @@ interface CataloguePhotoProps {
   sizes?: string;
   priority?: boolean;
   zoom?: boolean;
-  showCredit?: boolean;
   decorative?: boolean;
 }
 
@@ -17,7 +16,6 @@ export function CataloguePhoto({
   sizes = "(max-width: 768px) 100vw, 33vw",
   priority = false,
   zoom = false,
-  showCredit = false,
   decorative = false,
 }: CataloguePhotoProps) {
   return (
@@ -30,11 +28,6 @@ export function CataloguePhoto({
         priority={priority}
         className={`object-cover ${zoom ? "transition-transform duration-500 group-hover:scale-[1.04]" : ""}`}
       />
-      {showCredit && (
-        <span className="absolute bottom-0 left-0 right-0 bg-black/60 px-2 py-1 font-label text-[9px] uppercase tracking-[0.05em] text-white/90 truncate">
-          {image.credit} · {image.license}
-        </span>
-      )}
     </div>
   );
 }

@@ -93,7 +93,7 @@ export default function AboutPage() {
               href={`/products/${product.slug}`}
               className="border border-outline bg-white hover:border-primary transition-colors group"
             >
-              <CataloguePhoto image={product.image} className="h-40" zoom showCredit />
+              <CataloguePhoto image={product.image} className="h-40" zoom />
               <div className="p-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-headline text-lg font-semibold text-on-surface uppercase">{product.name}</h3>

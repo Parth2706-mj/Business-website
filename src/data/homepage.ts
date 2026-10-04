@@ -17,7 +17,7 @@ export const heroContent: HeroContent = {
 
 export const heroStats: HeroStat[] = [
   { value: "7", label: "Application lines" },
-  { value: "4", label: "Channel partners" },
+  { value: "2004", label: "Supplying since" },
   { value: "PVC", label: "Pipe, cable, film" },
   { value: "CPVC", label: "Pipe and fitting packs" },
 ];
@@ -44,9 +44,8 @@ export const dataSets: DataSetCard[] = [
   },
   {
     id: "03",
-    title: "Channel partners",
-    description:
-      "Channel partner for Indofil / Reagans India, Gold Stab, Maldeep Catalysts, and Camex Ltd.",
+    title: "Two locations",
+    description: "Enquiries are taken from Alwar MIA and Jaipur VKI, and the reply goes out on priority.",
   },
   {
     id: "04",

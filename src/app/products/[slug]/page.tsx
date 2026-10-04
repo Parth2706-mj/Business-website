@@ -71,16 +71,6 @@ export default async function ProductDetailPage({
                 <dd className="font-headline text-2xl font-bold text-primary">{product.materials.length}</dd>
               </div>
               <div className="px-6 py-4 border-b border-outline-variant">
-                <dt className="font-label text-[11px] uppercase tracking-[0.08em] text-outline mb-2">Channel partners</dt>
-                <dd className="space-y-2">
-                  {company.channelPartners.map((partner) => (
-                    <p key={partner} className="font-body text-sm text-on-surface">
-                      {partner}
-                    </p>
-                  ))}
-                </dd>
-              </div>
-              <div className="px-6 py-4 border-b border-outline-variant">
                 <dt className="font-label text-[11px] uppercase tracking-[0.08em] text-outline mb-2">Phone</dt>
                 <dd className="space-y-2">
                   {company.phones.map((phone) => (
@@ -125,7 +115,7 @@ export default async function ProductDetailPage({
                 href={`/products/${related.slug}`}
                 className="border border-outline bg-white hover:border-primary transition-colors group"
               >
-                <CataloguePhoto image={related.image} className="h-40" zoom showCredit />
+                <CataloguePhoto image={related.image} className="h-40" zoom />
                 <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <span className="font-label text-xs font-semibold uppercase tracking-[0.08em] text-primary">

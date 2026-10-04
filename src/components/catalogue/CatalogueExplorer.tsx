@@ -78,7 +78,7 @@ export function CatalogueExplorer() {
           {visibleProducts.map((product) => (
             <article key={product.slug} className="border border-outline bg-white flex flex-col hover:border-primary transition-colors group">
               <Link href={`/products/${product.slug}`} className="block">
-                <CataloguePhoto image={product.image} className="h-44" zoom showCredit />
+                <CataloguePhoto image={product.image} className="h-44" zoom />
               </Link>
               <div className="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
                 <h2 className="font-label text-xs font-semibold uppercase tracking-[0.08em] text-primary">

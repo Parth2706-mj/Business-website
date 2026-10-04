@@ -84,17 +84,12 @@ export interface ServiceItem {
 export interface CatalogueImage {
   src: string;
   alt: string;
-  credit: string;
-  license: string;
-  sourceUrl: string;
 }
 
 export interface MaterialLine {
   name: string;
   detail?: string;
   image: CatalogueImage;
-  /** Shown when the photograph is the application, not the chemical itself. */
-  imageNote?: string;
 }
 
 export interface Product {

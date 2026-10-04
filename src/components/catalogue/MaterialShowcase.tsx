@@ -10,10 +10,6 @@ export function MaterialShowcase({ product }: { product: Product }) {
   const active = product.materials[activeIndex] ?? product.materials[0];
   const photo = active?.image ?? product.image;
 
-  const thumbs = product.materials.filter(
-    (item, index, list) => list.findIndex((other) => other.image.src === item.image.src) === index,
-  );
-
   return (
     <div className="border-t border-outline-variant pt-10">
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
@@ -25,33 +21,17 @@ export function MaterialShowcase({ product }: { product: Product }) {
         </span>
       </div>
 
-      <figure className="mb-4">
-        <CataloguePhoto image={photo} className="h-72 md:h-96" sizes="(max-width: 1024px) 100vw, 58vw" priority />
-        <figcaption className="mt-3 flex flex-col gap-1">
-          <p className="font-body text-sm text-on-surface">{active?.imageNote ?? photo.alt}</p>
-          <p className="font-label text-[11px] uppercase tracking-[0.06em] text-outline">
-            Photo: {photo.credit} · {photo.license} ·{" "}
-            <a href={photo.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline">
-              Wikimedia Commons
-            </a>
-          </p>
-        </figcaption>
-      </figure>
-
-      <p className="font-body text-xs text-on-surface-variant leading-relaxed mb-5">
-        Photographs illustrate the material or the application. They are reference images, not warehouse shots, and the grade is confirmed on enquiry.
-      </p>
+      <CataloguePhoto image={photo} className="h-72 md:h-96 mb-5" sizes="(max-width: 1024px) 100vw, 58vw" priority />
 
       <div className="flex gap-2 overflow-x-auto pb-4 mb-2">
-        {thumbs.map((item) => {
-          const index = product.materials.findIndex((candidate) => candidate.image.src === item.image.src);
-          const selected = photo.src === item.image.src;
+        {product.materials.map((item, index) => {
+          const selected = index === activeIndex;
           return (
             <button
-              key={item.image.src}
+              key={`${item.name}-thumb`}
               type="button"
               onClick={() => setActiveIndex(index)}
-              aria-label={`Show ${item.image.alt}`}
+              aria-label={item.name}
               aria-pressed={selected}
               className={`relative h-16 w-24 shrink-0 overflow-hidden border cursor-pointer ${
                 selected ? "border-primary" : "border-outline-variant hover:border-primary"

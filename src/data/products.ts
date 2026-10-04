@@ -4,26 +4,16 @@
  * Application lines and the materials named for each line in the
  * Baba Sons & Khandelwal Udyog company profile, plus the masterbatch
  * line named in the company description.
- *
- * This module is the catalogue source of truth for the public site.
- * An admin portal can replace these arrays later without changing page routes.
- *
- * To add a line:
- *   1. Add an entry to `products`
- *   2. The slug becomes /products/[slug]
- *   3. Point relatedSlugs at the closest other lines
  * ============================================================================= */
 
-import { catalogueImages, type CatalogueImageKey } from "@/data/catalogue-images";
-import type { MaterialIndexEntry, MaterialLine, Product } from "@/types";
+import type { CatalogueImage, MaterialIndexEntry, MaterialLine, Product } from "@/types";
 
-function material(
-  name: string,
-  image: CatalogueImageKey,
-  detail?: string,
-  imageNote?: string,
-): MaterialLine {
-  return { name, detail, image: catalogueImages[image], imageNote };
+function photo(file: string, alt: string): CatalogueImage {
+  return { src: `/catalogue/${file}`, alt };
+}
+
+function material(name: string, file: string, detail?: string): MaterialLine {
+  return { name, detail, image: photo(file, name) };
 }
 
 export const products: Product[] = [
@@ -31,7 +21,7 @@ export const products: Product[] = [
     slug: "pvc-agri-swr-pipe",
     name: "PVC Agri & SWR Pipe",
     icon: "water_drop",
-    image: catalogueImages.pipe,
+    image: photo("agri-field.jpg", "PVC Agri & SWR Pipe"),
     shortDescription:
       "Resin, stabiliser packs, CPE, modifiers, lubricants, titanium dioxide, and calcite for agricultural and SWR pipe.",
     longDescription: `Baba Sons and Khandelwal Udyog supply the raw materials listed below for PVC agricultural pipe and SWR pipe, with technical back-up alongside the material.
@@ -40,16 +30,16 @@ Lead and calcium-zinc systems are both listed, including one-pack and super-pack
 
 Grades, packing, and current availability are confirmed when you enquire. This page follows the company profile and does not add specifications that are not printed there.`,
     materials: [
-      material("PVC Resin", "granules"),
-      material("Lead one pack / Super pack", "pipe", undefined, "Supplied for this pipe line"),
-      material("Ca-Zn one pack / Super pack", "pipe", undefined, "Supplied for this pipe line"),
-      material("Plasticizers", "pipe", undefined, "Supplied for this pipe line"),
-      material("Additives, CPE", "granules"),
-      material("Impact Modifier", "granules"),
-      material("Processing Aid", "granules"),
-      material("Lubricants", "wax"),
-      material("Titanium Dioxide", "tio2", "Rutile and anatase"),
-      material("Calcite", "calcite", "Vietnam, Egypt, Malaysia"),
+      material("PVC Resin", "granules.jpg"),
+      material("Lead one pack / Super pack", "drain-pipe.jpg"),
+      material("Ca-Zn one pack / Super pack", "cut-pipe.jpg"),
+      material("Plasticizers", "pp-pellets.jpg"),
+      material("Additives, CPE", "pellets-inject.jpg"),
+      material("Impact Modifier", "shrink.jpg"),
+      material("Processing Aid", "dripper.jpg"),
+      material("Lubricants", "stearic.jpg"),
+      material("Titanium Dioxide", "tio2.jpg", "Rutile and anatase"),
+      material("Calcite", "calcite.jpg", "Vietnam, Egypt, Malaysia"),
     ],
     relatedSlugs: ["pvc-conduit-pipe", "cpvc"],
   },
@@ -57,7 +47,7 @@ Grades, packing, and current availability are confirmed when you enquire. This p
     slug: "pvc-wire-and-cable",
     name: "PVC Wire and Cable",
     icon: "cable",
-    image: catalogueImages.cable,
+    image: photo("cable.jpg", "PVC Wire and Cable"),
     shortDescription:
       "PVC resin, lead and calcium-zinc stabilisers, plasticisers, titanium dioxide, and calcite for wire and cable compounds.",
     longDescription: `For PVC wire and cable, the catalogue lists resin, lead stabilisers, calcium-zinc stabilisers, plasticisers, titanium dioxide, and calcite.
@@ -66,12 +56,12 @@ Plasticisers named for this line are DOP, DIBP, and DINP. Titanium dioxide is ru
 
 Ask for the grade and packing you need. Technical data is shared on request.`,
     materials: [
-      material("PVC Resin", "granules"),
-      material("Lead Stabilizers", "cable", undefined, "Supplied for this cable line"),
-      material("Ca-Zn Stabilizers", "cable", undefined, "Supplied for this cable line"),
-      material("Plasticizers", "cable", "DOP, DIBP, DINP", "Supplied for this cable line"),
-      material("Titanium Dioxide", "tio2", "Rutile and anatase"),
-      material("Calcite", "calcite", "Vietnam, Egypt, Malaysia"),
+      material("PVC Resin", "sacks.jpg"),
+      material("Lead Stabilizers", "copper.jpg"),
+      material("Ca-Zn Stabilizers", "harness.jpg"),
+      material("Plasticizers", "cable-section.jpg", "DOP, DIBP, DINP"),
+      material("Titanium Dioxide", "tio2-jar.jpg", "Rutile and anatase"),
+      material("Calcite", "lime.jpg", "Vietnam, Egypt, Malaysia"),
     ],
     relatedSlugs: ["tubing-garden-pipe", "pvc-film-panel-floor"],
   },
@@ -79,22 +69,22 @@ Ask for the grade and packing you need. Technical data is shared on request.`,
     slug: "pvc-conduit-pipe",
     name: "PVC Conduit Pipe",
     icon: "electrical_services",
-    image: catalogueImages.conduit,
+    image: photo("conduit.jpg", "PVC Conduit Pipe"),
     shortDescription:
       "Resin, one-pack stabilisers, CPE, brightener, stearic acid, waxes, titanium, and calcite for conduit pipe.",
     longDescription: `The conduit-pipe line covers resin, lead one pack, calcium-zinc one pack, CPE, brightener, stearic acid, waxes, titanium, and calcite.
 
 Calcite for this line is listed from Vietnam, Egypt, and Malaysia. Use the enquiry form to ask which wax and which brightener grade is available for your conduit formulation.`,
     materials: [
-      material("PVC Resin", "granules"),
-      material("Lead one pack", "conduit", undefined, "Supplied for this conduit line"),
-      material("Ca-Zn one pack", "conduit", undefined, "Supplied for this conduit line"),
-      material("CPE", "granules"),
-      material("Brightener", "pigments", undefined, "Colour reference beside the brightener grade"),
-      material("Stearic Acid", "wax"),
-      material("Waxes", "wax"),
-      material("Titanium", "tio2"),
-      material("Calcite", "calcite", "Vietnam, Egypt, Malaysia"),
+      material("PVC Resin", "pipe-stack.jpg"),
+      material("Lead one pack", "wall-pipe.jpg"),
+      material("Ca-Zn one pack", "conduit-bend.jpg"),
+      material("CPE", "conduit-bank.jpg"),
+      material("Brightener", "ultra.jpg"),
+      material("Stearic Acid", "stearic-glass.jpg"),
+      material("Waxes", "power-hg.jpg"),
+      material("Titanium", "alum.jpg"),
+      material("Calcite", "mb-white2.jpg", "Vietnam, Egypt, Malaysia"),
     ],
     relatedSlugs: ["pvc-agri-swr-pipe", "cpvc"],
   },
@@ -102,19 +92,19 @@ Calcite for this line is listed from Vietnam, Egypt, and Malaysia. Use the enqui
     slug: "tubing-garden-pipe",
     name: "Tubing (Garden Pipe)",
     icon: "sprinkler",
-    image: catalogueImages.hose,
+    image: photo("hose.jpg", "Tubing (Garden Pipe)"),
     shortDescription:
       "Resin, plasticisers, liquid methyl tin and antimony, a calcium-zinc tin replacement, brighteners, and pigments for garden pipe.",
     longDescription: `Garden-pipe tubing is listed with resin and the plasticisers DOP, DIBP, and CPW. Stabiliser options are liquid methyl tin or antimony, and a calcium-zinc system offered as a replacement to tin.
 
 Optical brighteners OB and OB-1, and colour pigments, are included on this line. Confirm the pigment shade and the stabiliser route when you enquire.`,
     materials: [
-      material("PVC Resin", "granules"),
-      material("Plasticizers", "hose", "DOP, DIBP, CPW", "Supplied for garden pipe"),
-      material("Methyl Tin / Antimony", "hose", "Liquid", "Supplied for garden pipe"),
-      material("Ca-Zn replacement to tin", "hose", undefined, "Supplied for garden pipe"),
-      material("Brightener", "pigments", "OB, OB-1", "Colour reference beside the brightener grade"),
-      material("Pigments", "pigments", "Colours"),
+      material("PVC Resin", "irrig-pipe.jpg"),
+      material("Plasticizers", "blue-hose.jpg", "DOP, DIBP, CPW"),
+      material("Methyl Tin / Antimony", "drip.jpg", "Liquid"),
+      material("Ca-Zn replacement to tin", "irrig-reel.jpg"),
+      material("Brightener", "ultra2.jpg", "OB, OB-1"),
+      material("Pigments", "pigments.jpg", "Colours"),
     ],
     relatedSlugs: ["pvc-wire-and-cable", "masterbatches"],
   },
@@ -122,21 +112,21 @@ Optical brighteners OB and OB-1, and colour pigments, are included on this line.
     slug: "pvc-film-panel-floor",
     name: "PVC Film, UPVC Panel and Floor",
     icon: "layers",
-    image: catalogueImages.floor,
+    image: photo("floor.jpg", "PVC Film, UPVC Panel and Floor"),
     shortDescription:
       "Suspension and paste resin, UPVC panel, plasticisers, processing aid, impact modifier, waxes, brighteners, and pigments for film, panel, and flooring.",
     longDescription: `This line covers PVC film, UPVC panel, and flooring. The profile lists both suspension and paste resin. Plasticisers named here are DOP, DIBP, DINP, and DOTP.
 
 The same line includes processing aid and impact modifier, Honeywell waxes, paraffin wax, brighteners OB and OB-1, and colour pigments. Tell us the end product — film, UPVC panel, or floor — so the grade can be matched.`,
     materials: [
-      material("UPVC Panel", "floor", undefined, "Vinyl surface for panel and flooring"),
-      material("PVC Resin", "granules", "Suspension and paste"),
-      material("Plasticizers", "floor", "DOP, DIBP, DINP, DOTP", "Supplied for film, panel, and floor"),
-      material("Processing Aid & Impact Modifier", "granules"),
-      material("Honeywell waxes", "wax"),
-      material("Paraffin wax", "wax"),
-      material("Brightener", "pigments", "OB, OB-1", "Colour reference beside the brightener grade"),
-      material("Pigments", "pigments", "Colours"),
+      material("UPVC Panel", "vinyl-south.jpg"),
+      material("PVC Resin", "film-roll.jpg", "Suspension and paste"),
+      material("Plasticizers", "leather.jpg", "DOP, DIBP, DINP, DOTP"),
+      material("Processing Aid & Impact Modifier", "floor2.jpg"),
+      material("Honeywell waxes", "pe-wax.jpg"),
+      material("Paraffin wax", "wax.jpg"),
+      material("Brightener", "brown-pig.jpg", "OB, OB-1"),
+      material("Pigments", "iron-ox.jpg", "Colours"),
     ],
     relatedSlugs: ["tubing-garden-pipe", "masterbatches"],
   },
@@ -144,21 +134,21 @@ The same line includes processing aid and impact modifier, Honeywell waxes, para
     slug: "cpvc",
     name: "CPVC",
     icon: "valve",
-    image: catalogueImages.cpvc,
+    image: photo("cpvc.jpg", "CPVC"),
     shortDescription:
       "CPVC resin, pipe and fitting, processing aid, impact modifier, waxes, and pipe and fitting super packs.",
     longDescription: `The CPVC line covers CPVC resin, CPVC pipe, and CPVC fitting, together with processing aid and impact modifier, FT and oxidised waxes, Honeywell waxes, a pipe super pack, and a fitting super pack.
 
 Name whether you need resin, pipe, or fitting when you ask for a quotation or a technical sheet.`,
     materials: [
-      material("CPVC Resin", "granules"),
-      material("CPVC Pipe", "cpvc"),
-      material("CPVC Fitting", "cpvc", undefined, "Pipework this fitting line belongs to"),
-      material("Processing Aid & Impact Modifier", "granules"),
-      material("FT & Oxidized Waxes", "wax"),
-      material("Honeywell waxes", "wax"),
-      material("Pipe Super Pack", "cpvc", undefined, "Supplied for CPVC pipe"),
-      material("Fitting Super Pack", "cpvc", undefined, "Supplied for CPVC fitting"),
+      material("CPVC Resin", "upvc-fit.jpg"),
+      material("CPVC Pipe", "sprinkler-fit.jpg"),
+      material("CPVC Fitting", "fittings.jpg"),
+      material("Processing Aid & Impact Modifier", "pipe.jpg"),
+      material("FT & Oxidized Waxes", "greenhouse-hose.jpg"),
+      material("Honeywell waxes", "nozzle.jpg"),
+      material("Pipe Super Pack", "emt.jpg"),
+      material("Fitting Super Pack", "lace.jpg"),
     ],
     relatedSlugs: ["pvc-agri-swr-pipe", "pvc-conduit-pipe"],
   },
@@ -166,17 +156,17 @@ Name whether you need resin, pipe, or fitting when you ask for a quotation or a 
     slug: "masterbatches",
     name: "Masterbatches",
     icon: "palette",
-    image: catalogueImages.masterbatch,
+    image: photo("masterbatch.jpg", "Masterbatches"),
     shortDescription:
       "Colour, white, black, and additive masterbatches for the PVC applications already in the catalogue.",
     longDescription: `Masterbatches are part of the same supply: colour, white, black, and additive concentrates for pipe, profile, film, flooring, and the other PVC lines on this site.
 
 The shade, the carrier, and the let-down are confirmed when you enquire. This page does not add laboratory specifications that are not printed in the company profile.`,
     materials: [
-      material("Colour masterbatch", "masterbatch"),
-      material("White masterbatch", "pellets"),
-      material("Black masterbatch", "masterbatch", undefined, "Pellet form. The black shade is confirmed on enquiry"),
-      material("Additive masterbatch", "pellets", undefined, "Pellet form. The additive type is confirmed on enquiry"),
+      material("Colour masterbatch", "fe2o3.jpg"),
+      material("White masterbatch", "pellets.jpg"),
+      material("Black masterbatch", "carbon.jpg"),
+      material("Additive masterbatch", "iron-black.jpg"),
     ],
     relatedSlugs: ["pvc-film-panel-floor", "tubing-garden-pipe"],
   },

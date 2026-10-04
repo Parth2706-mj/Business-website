@@ -24,19 +24,25 @@ export function Header() {
     <>
       <nav
         id="main-nav"
-        className={`fixed top-0 left-0 w-full z-50 bg-surface border-b border-outline-variant flex justify-between items-center h-16 px-4 md:px-10 xl:px-16 transition-shadow duration-200 ${
+        className={`fixed top-0 left-0 w-full z-50 bg-surface border-b border-outline-variant flex justify-between items-center h-20 px-4 md:px-10 xl:px-16 transition-shadow duration-200 ${
           scrolled ? "shadow-md" : ""
         }`}
       >
-        <Link href="/" className="shrink-0 flex items-center" aria-label={company.name}>
+        <Link href="/" className="shrink-0 flex flex-col items-start gap-0.5" aria-label={company.name}>
           <Image
             src="/brand/logo-mark.png"
             alt=""
             width={1210}
             height={566}
             priority
-            className="h-12 w-auto"
+            className="h-8 w-auto"
           />
+          <span className="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary leading-none">
+            {company.tradeName}
+          </span>
+          <span className="font-label text-[10px] uppercase tracking-[0.16em] text-secondary leading-none">
+            {company.shortName}
+          </span>
         </Link>
 
         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
@@ -80,7 +86,7 @@ export function Header() {
       </nav>
 
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-surface pt-16 overflow-y-auto">
+        <div className="fixed inset-0 z-40 bg-surface pt-20 overflow-y-auto">
           <div className="flex flex-col p-6 gap-1">
             <SiteSearch className="mb-4" autoFocus onNavigate={() => setMenuPath(null)} />
             {mainNavLinks.map((link) => {
