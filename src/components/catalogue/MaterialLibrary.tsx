@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { CataloguePhoto } from "@/components/catalogue/CataloguePhoto";
 import { getMaterialIndex, products } from "@/data/products";
 import type { EnquiryIntent } from "@/types";
 
@@ -71,7 +72,10 @@ export function MaterialLibrary({ intent, actionLabel }: MaterialLibraryProps) {
                 index < filtered.length - 1 ? "border-b border-outline-variant" : ""
               }`}
             >
-              <div className="md:col-span-4 font-body text-sm text-on-surface">{material.name}</div>
+              <div className="md:col-span-4 flex items-center gap-3 font-body text-sm text-on-surface">
+                <CataloguePhoto image={material.image} className="h-10 w-10 shrink-0" sizes="40px" />
+                <span>{material.name}</span>
+              </div>
               <div className="md:col-span-3 font-label text-xs text-outline">{material.detail ?? "—"}</div>
               <div className="md:col-span-3 font-label text-xs uppercase tracking-[0.08em] text-on-surface-variant">
                 {material.applicationName}

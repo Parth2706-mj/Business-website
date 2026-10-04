@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { products } from "@/data/products";
 import { pageSeo } from "@/data/pages";
 import { PageHero } from "@/components/sections/shared/PageHero";
 import { CTABanner } from "@/components/sections/shared/CTABanner";
@@ -17,7 +18,7 @@ export default function ProductsPage() {
       <PageHero
         label="Catalogue"
         heading="Application lines"
-        body="Six lines from the company profile. Search a material, open the line it belongs to, or send an enquiry for price and availability."
+        body={`${products.length} application lines. Search a material, open the line it belongs to, and select a photograph, or send an enquiry for price and availability.`}
       />
       <Suspense fallback={<div className="px-4 md:px-16 py-16 font-body text-sm text-on-surface-variant">Loading catalogue…</div>}>
         <CatalogueExplorer />

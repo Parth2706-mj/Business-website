@@ -21,6 +21,7 @@ export const footerLinkGroups: FooterLinkGroup[] = [
       { label: "Garden Pipe Tubing", href: "/products/tubing-garden-pipe" },
       { label: "Film, UPVC Panel and Floor", href: "/products/pvc-film-panel-floor" },
       { label: "CPVC", href: "/products/cpvc" },
+      { label: "Masterbatches", href: "/products/masterbatches" },
     ],
   },
   {

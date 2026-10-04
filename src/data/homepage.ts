@@ -10,13 +10,13 @@ export const heroContent: HeroContent = {
   badge: "Single Window Service Provider",
   headline: "Chemicals with technical back-up",
   subtext:
-    "Baba Sons and Khandelwal Udyog supply PVC and CPVC raw materials for pipe, wire and cable, film, panel, and flooring — and stay with you on the technical side of the formulation.",
+    "Baba Sons and Khandelwal Udyog supply PVC and CPVC raw materials for pipe, wire and cable, film, panel, flooring, and masterbatches — and stay with you on the technical side of the formulation.",
   primaryCta: { label: "View catalogue", href: "/products" },
   secondaryCta: { label: "Send an enquiry", href: "/contact" },
 };
 
 export const heroStats: HeroStat[] = [
-  { value: "6", label: "Application lines" },
+  { value: "7", label: "Application lines" },
   { value: "4", label: "Channel partners" },
   { value: "PVC", label: "Pipe, cable, film" },
   { value: "CPVC", label: "Pipe and fitting packs" },
@@ -34,7 +34,7 @@ export const dataSets: DataSetCard[] = [
     id: "01",
     title: "Single window",
     description:
-      "One enquiry covers the chemicals named for agri and SWR pipe, conduit, wire and cable, garden tubing, film, panel, flooring, and CPVC.",
+      "One enquiry covers the chemicals named for agri and SWR pipe, conduit, wire and cable, garden tubing, film, panel, flooring, CPVC, and masterbatches.",
   },
   {
     id: "02",
@@ -68,7 +68,7 @@ export const techSupportContent = {
 } as const;
 
 export const techStats: StatItem[] = [
-  { value: "6", label: "Lines in the profile" },
+  { value: "7", label: "Application lines" },
   { value: "Direct", label: "Phone and email" },
 ];
 
@@ -76,6 +76,7 @@ export const serviceDirectory: ServiceItem[] = [
   { name: "PVC pipe materials", href: "/products/pvc-agri-swr-pipe" },
   { name: "Wire and cable materials", href: "/products/pvc-wire-and-cable" },
   { name: "Film, UPVC panel and floor", href: "/products/pvc-film-panel-floor" },
+  { name: "Masterbatches", href: "/products/masterbatches" },
   { name: "Request technical data", href: "/technical-data" },
 ];
 

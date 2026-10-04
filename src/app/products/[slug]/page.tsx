@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { company } from "@/data/company";
 import { getAllProductSlugs, getProductBySlug, products } from "@/data/products";
+import { CataloguePhoto } from "@/components/catalogue/CataloguePhoto";
+import { MaterialShowcase } from "@/components/catalogue/MaterialShowcase";
 import { PageHero } from "@/components/sections/shared/PageHero";
 import { CTABanner } from "@/components/sections/shared/CTABanner";
 
@@ -50,36 +52,7 @@ export default async function ProductDetailPage({
             {product.longDescription}
           </div>
 
-          <div className="border-t border-outline-variant pt-10">
-            <span className="font-label text-xs font-semibold uppercase tracking-[0.08em] text-primary block mb-6">
-              Materials supplied for this line
-            </span>
-            <ul className="border border-outline">
-              {product.materials.map((material, index) => (
-                <li
-                  key={material.name}
-                  className={`flex flex-col md:flex-row md:items-center md:justify-between gap-3 px-5 py-4 ${
-                    index < product.materials.length - 1 ? "border-b border-outline-variant" : ""
-                  }`}
-                >
-                  <div>
-                    <p className="font-body text-sm text-on-surface">{material.name}</p>
-                    {material.detail && (
-                      <p className="font-label text-xs uppercase tracking-[0.08em] text-outline mt-1">
-                        {material.detail}
-                      </p>
-                    )}
-                  </div>
-                  <Link
-                    href={`/contact?intent=quote&application=${product.slug}&material=${encodeURIComponent(material.name)}`}
-                    className="font-label text-xs font-semibold uppercase tracking-[0.08em] text-primary shrink-0"
-                  >
-                    Enquire
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <MaterialShowcase product={product} />
         </div>
 
         <aside className="lg:col-span-4 lg:col-start-9">
@@ -150,8 +123,10 @@ export default async function ProductDetailPage({
               <Link
                 key={related.slug}
                 href={`/products/${related.slug}`}
-                className="border border-outline bg-white p-6 hover:border-primary transition-colors group"
+                className="border border-outline bg-white hover:border-primary transition-colors group"
               >
+                <CataloguePhoto image={related.image} className="h-40" zoom showCredit />
+                <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <span className="font-label text-xs font-semibold uppercase tracking-[0.08em] text-primary">
                     {related.name}
@@ -165,6 +140,7 @@ export default async function ProductDetailPage({
                   View materials
                   <span className="material-symbols-outlined text-base">arrow_forward</span>
                 </span>
+                </div>
               </Link>
             ))}
           </div>

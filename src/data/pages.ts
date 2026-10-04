@@ -9,7 +9,7 @@ export const pageSeo: Record<string, PageSeo> = {
   home: {
     title: "Baba Sons & Khandelwal Udyog | Chemicals with technical back-up",
     description:
-      "Single-window supply of PVC and CPVC raw materials for pipe, wire and cable, film, panel, and flooring, with technical back-up.",
+      "Single-window supply of PVC and CPVC raw materials for pipe, wire and cable, film, panel, flooring, and masterbatches, with technical back-up.",
     keywords: [
       "Baba Sons",
       "Khandelwal Udyog",
@@ -24,7 +24,7 @@ export const pageSeo: Record<string, PageSeo> = {
   products: {
     title: "Catalogue | Baba Sons & Khandelwal Udyog",
     description:
-      "Application-wise catalogue of PVC and CPVC chemicals: resin, stabilisers, plasticisers, modifiers, waxes, pigments, titanium dioxide, and calcite.",
+      "Application-wise catalogue of PVC and CPVC chemicals: resin, stabilisers, plasticisers, modifiers, waxes, pigments, titanium dioxide, calcite, and masterbatches.",
     keywords: [
       "PVC pipe chemicals",
       "PVC cable compound raw materials",
@@ -77,7 +77,7 @@ export const aboutPageContent = {
     {
       title: "Single window",
       description:
-        "Resin, stabilisers, plasticisers, modifiers, lubricants, waxes, pigments, titanium dioxide, and calcite are listed in one place, by the application they serve.",
+        "Resin, stabilisers, plasticisers, modifiers, lubricants, waxes, pigments, titanium dioxide, calcite, and masterbatches are listed in one place, by the application they serve.",
       icon: "inventory_2",
     },
     {
@@ -100,7 +100,7 @@ export const aboutPageContent = {
     },
   ],
   capabilities: [
-    { value: "6", label: "Application lines" },
+    { value: "7", label: "Application lines" },
     { value: "4", label: "Channel partners" },
     { value: "2004", label: "In business since" },
     { value: "2", label: "Locations" },

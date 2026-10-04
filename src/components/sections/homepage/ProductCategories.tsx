@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CataloguePhoto } from "@/components/catalogue/CataloguePhoto";
 import { getMaterialCount, products } from "@/data/products";
 import { productsSectionContent } from "@/data/homepage";
 
@@ -33,6 +34,10 @@ export function ProductCategories() {
                 {String(index + 1).padStart(2, "0")}
               </span>
             </div>
+
+            <Link href={`/products/${product.slug}`} className="block border-b border-outline-variant">
+              <CataloguePhoto image={product.image} className="h-44" zoom showCredit />
+            </Link>
 
             <div className="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-container-low group-hover:bg-primary-fixed/30 transition-colors">
               <h3 className="font-label text-xs font-semibold uppercase tracking-[0.08em] text-primary">

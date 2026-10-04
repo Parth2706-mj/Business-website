@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { CataloguePhoto } from "@/components/catalogue/CataloguePhoto";
 import { getMaterialCount, products, searchCatalogue } from "@/data/products";
 
 export function CatalogueExplorer() {
@@ -38,7 +39,7 @@ export function CatalogueExplorer() {
             id="catalogue-search"
             value={query}
             onChange={(event) => writeParams(event.target.value, line)}
-            placeholder="Try calcite, DOP, CPVC, brightener..."
+            placeholder="Try calcite, DOP, CPVC, masterbatch..."
             className="border border-outline bg-white px-4 py-3 font-body text-sm w-full lg:w-96 outline-none focus:border-primary"
             type="search"
           />
@@ -75,7 +76,10 @@ export function CatalogueExplorer() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-16">
           {visibleProducts.map((product) => (
-            <article key={product.slug} className="border border-outline bg-white flex flex-col hover:border-primary transition-colors">
+            <article key={product.slug} className="border border-outline bg-white flex flex-col hover:border-primary transition-colors group">
+              <Link href={`/products/${product.slug}`} className="block">
+                <CataloguePhoto image={product.image} className="h-44" zoom showCredit />
+              </Link>
               <div className="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
                 <h2 className="font-label text-xs font-semibold uppercase tracking-[0.08em] text-primary">
                   {product.name}
@@ -146,7 +150,10 @@ export function CatalogueExplorer() {
                 index < visibleMaterials.length - 1 ? "border-b border-outline-variant" : ""
               }`}
             >
-              <div className="md:col-span-4 font-body text-sm text-on-surface">{material.name}</div>
+              <div className="md:col-span-4 flex items-center gap-3 font-body text-sm text-on-surface">
+                <CataloguePhoto image={material.image} className="h-10 w-10 shrink-0" sizes="40px" />
+                <span>{material.name}</span>
+              </div>
               <div className="md:col-span-3 font-label text-xs text-outline">{material.detail ?? "—"}</div>
               <div className="md:col-span-3">
                 <Link

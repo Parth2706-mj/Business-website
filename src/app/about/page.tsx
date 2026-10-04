@@ -3,6 +3,7 @@ import Link from "next/link";
 import { aboutPageContent, pageSeo } from "@/data/pages";
 import { company } from "@/data/company";
 import { products } from "@/data/products";
+import { CataloguePhoto } from "@/components/catalogue/CataloguePhoto";
 import { PageHero } from "@/components/sections/shared/PageHero";
 import { CTABanner } from "@/components/sections/shared/CTABanner";
 
@@ -90,8 +91,10 @@ export default function AboutPage() {
             <Link
               key={product.slug}
               href={`/products/${product.slug}`}
-              className="border border-outline bg-white p-6 hover:border-primary transition-colors"
+              className="border border-outline bg-white hover:border-primary transition-colors group"
             >
+              <CataloguePhoto image={product.image} className="h-40" zoom showCredit />
+              <div className="p-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-headline text-lg font-semibold text-on-surface uppercase">{product.name}</h3>
                 <span className="material-symbols-outlined text-primary">{product.icon}</span>
@@ -102,6 +105,7 @@ export default function AboutPage() {
               <span className="font-label text-xs uppercase tracking-[0.08em] text-outline">
                 {product.materials.length} materials
               </span>
+              </div>
             </Link>
           ))}
         </div>

@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { CataloguePhoto } from "@/components/catalogue/CataloguePhoto";
 import { heroContent, heroStats } from "@/data/homepage";
-import { company } from "@/data/company";
+import { products } from "@/data/products";
+
+const heroPhotoSlugs = ["pvc-agri-swr-pipe", "pvc-wire-and-cable", "cpvc", "masterbatches"];
 
 export function HeroSection() {
   const { badge, headline, subtext, primaryCta, secondaryCta } = heroContent;
@@ -19,7 +22,7 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="relative z-10 px-4 md:px-16 w-full grid grid-cols-4 md:grid-cols-12 gap-6">
+      <div className="relative z-10 px-4 md:px-16 pb-24 w-full grid grid-cols-4 md:grid-cols-12 gap-6">
         <div className="col-span-4 md:col-span-8 lg:col-span-7">
           <div className="inline-flex items-center gap-2 border border-on-primary/20 px-4 py-2 mb-8 bg-white/5 backdrop-blur-sm">
             <span className="w-2 h-2 bg-secondary-fixed-dim" />
@@ -55,19 +58,23 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="hidden lg:flex col-span-5 items-center justify-center">
-          <div className="border border-on-primary/20 bg-white/5 px-8 py-10 max-w-sm">
-            <p className="font-label text-[11px] uppercase tracking-[0.16em] text-secondary-fixed-dim mb-4">
-              {company.tagline}
-            </p>
-            <p className="font-headline text-3xl font-bold text-on-primary leading-tight mb-2">
-              {company.shortName}
-            </p>
-            <p className="font-headline text-xl text-on-primary/80 mb-6">{company.tradeName}</p>
-            <p className="font-body text-sm text-on-primary/70 leading-relaxed">
-              Channel partner for Indofil / Reagans India, Gold Stab, Maldeep Catalysts, and Camex Ltd.
-            </p>
-          </div>
+        <div className="hidden lg:grid col-span-5 grid-cols-2 gap-3 content-center">
+          {heroPhotoSlugs.map((slug) => {
+            const product = products.find((item) => item.slug === slug);
+            if (!product) return null;
+            return (
+              <Link
+                key={slug}
+                href={`/products/${slug}`}
+                className="group relative block border border-on-primary/25 overflow-hidden"
+              >
+                <CataloguePhoto image={product.image} className="h-40" sizes="240px" zoom />
+                <span className="absolute inset-x-0 bottom-0 bg-primary/85 px-3 py-2 font-label text-[10px] font-semibold uppercase tracking-[0.08em] text-on-primary">
+                  {product.name}
+                </span>
+              </Link>
+            );
+          })}
         </div>
       </div>
 
