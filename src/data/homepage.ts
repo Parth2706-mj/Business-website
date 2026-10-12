@@ -81,5 +81,5 @@ export const serviceDirectory: ServiceItem[] = [
 
 export const contactSectionContent = {
   heading: "Tell us the line and the material",
-  body: "Write to both email addresses, call the office number first, or message that same office number on WhatsApp. We are at Alwar MIA and Jaipur VKI, and enquiries are taken on priority.",
+  body: "Write to both email addresses, call the office number, or message that same office number on WhatsApp. We are at Alwar MIA and Jaipur VKI, and enquiries are taken on priority.",
 } as const;

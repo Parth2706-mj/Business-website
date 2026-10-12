@@ -28,12 +28,19 @@ export async function generateMetadata({
 
 export default async function ProductDetailPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ material?: string }>;
 }) {
   const { slug } = await params;
+  const { material } = await searchParams;
   const product = getProductBySlug(slug);
   if (!product) notFound();
+  const requested = material?.trim().toLowerCase();
+  const initialIndex = requested
+    ? product.materials.findIndex((item) => item.name.toLowerCase() === requested)
+    : 0;
 
   const relatedProducts = product.relatedSlugs
     .map((relatedSlug) => products.find((item) => item.slug === relatedSlug))
@@ -52,7 +59,7 @@ export default async function ProductDetailPage({
             {product.longDescription}
           </div>
 
-          <MaterialShowcase product={product} />
+          <MaterialShowcase product={product} initialIndex={initialIndex} />
         </div>
 
         <aside className="lg:col-span-4 lg:col-start-9">

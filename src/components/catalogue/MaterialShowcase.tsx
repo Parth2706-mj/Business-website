@@ -5,8 +5,16 @@ import Link from "next/link";
 import { CataloguePhoto } from "@/components/catalogue/CataloguePhoto";
 import type { Product } from "@/types";
 
-export function MaterialShowcase({ product }: { product: Product }) {
-  const [activeIndex, setActiveIndex] = useState(0);
+export function MaterialShowcase({
+  product,
+  initialIndex = 0,
+}: {
+  product: Product;
+  initialIndex?: number;
+}) {
+  const [activeIndex, setActiveIndex] = useState(
+    initialIndex >= 0 && initialIndex < product.materials.length ? initialIndex : 0,
+  );
   const active = product.materials[activeIndex] ?? product.materials[0];
   const photo = active?.image ?? product.image;
 
@@ -49,7 +57,8 @@ export function MaterialShowcase({ product }: { product: Product }) {
           return (
             <li
               key={item.name}
-              className={`flex flex-col md:flex-row md:items-center gap-3 px-3 py-3 ${
+              id={`${product.slug}-${index}`}
+              className={`scroll-mt-28 flex flex-col md:flex-row md:items-center gap-3 px-3 py-3 ${
                 index < product.materials.length - 1 ? "border-b border-outline-variant" : ""
               } ${selected ? "bg-primary-fixed/40" : "bg-white"}`}
             >

@@ -1,16 +1,22 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { CataloguePhoto } from "@/components/catalogue/CataloguePhoto";
-import { getMaterialCount, products, searchCatalogue } from "@/data/products";
+import { getCatalogueHits, getMaterialCount, products, searchCatalogue } from "@/data/products";
 
 export function CatalogueExplorer() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const query = searchParams.get("q") ?? "";
   const line = searchParams.get("line") ?? "all";
+
+  const boxRef = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState(false);
+  const hits = useMemo(() => getCatalogueHits(query), [query]);
+  const categories = hits.filter((hit) => hit.kind === "Category");
+  const productHits = hits.filter((hit) => hit.kind === "Product");
 
   const result = useMemo(() => searchCatalogue(query), [query]);
   const visibleProducts =
@@ -19,6 +25,14 @@ export function CatalogueExplorer() {
     line === "all"
       ? result.materials
       : result.materials.filter((material) => material.applicationSlug === line);
+
+  useEffect(() => {
+    function onPointer(event: MouseEvent) {
+      if (!boxRef.current?.contains(event.target as Node)) setOpen(false);
+    }
+    document.addEventListener("mousedown", onPointer);
+    return () => document.removeEventListener("mousedown", onPointer);
+  }, []);
 
   function writeParams(nextQuery: string, nextLine: string) {
     const params = new URLSearchParams();
@@ -31,18 +45,84 @@ export function CatalogueExplorer() {
   return (
     <section className="py-16 px-4 md:px-16">
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
-        <div>
+        <div ref={boxRef} className="relative">
           <label htmlFor="catalogue-search" className="font-label text-xs font-semibold uppercase tracking-[0.08em] text-outline block mb-3">
-            Search materials or lines
+            Search categories and products
           </label>
           <input
             id="catalogue-search"
             value={query}
-            onChange={(event) => writeParams(event.target.value, line)}
-            placeholder="Try calcite, DOP, CPVC, masterbatch..."
+            onChange={(event) => {
+              writeParams(event.target.value, line);
+              setOpen(true);
+            }}
+            onFocus={() => setOpen(true)}
+            placeholder="Categories and products"
             className="border border-outline bg-white px-4 py-3 font-body text-sm w-full lg:w-96 outline-none focus:border-primary"
             type="search"
+            role="combobox"
+            aria-expanded={open}
+            aria-controls="catalogue-search-list"
+            aria-autocomplete="list"
           />
+          {open && (
+            <div
+              id="catalogue-search-list"
+              role="listbox"
+              className="absolute left-0 top-full z-40 mt-1 w-full lg:w-[26rem] max-h-[70vh] overflow-y-auto border border-outline bg-white shadow-md"
+            >
+              {hits.length === 0 ? (
+                <p className="px-4 py-3 font-body text-sm text-on-surface-variant">
+                  No category or product matches “{query.trim()}”.
+                </p>
+              ) : (
+                <>
+                  {categories.length > 0 && (
+                    <p className="px-4 pt-3 pb-1 font-label text-[10px] font-semibold uppercase tracking-[0.08em] text-outline">
+                      Categories
+                    </p>
+                  )}
+                  <ul>
+                    {categories.map((hit) => (
+                      <li key={hit.id} role="option">
+                        <Link
+                          href={hit.href}
+                          onClick={() => setOpen(false)}
+                          className="block px-4 py-2.5 hover:bg-surface-container-low border-b border-outline-variant"
+                        >
+                          <span className="block font-body text-sm text-on-surface">{hit.label}</span>
+                          <span className="block font-label text-[10px] uppercase tracking-[0.08em] text-outline mt-1">
+                            {hit.detail}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                  {productHits.length > 0 && (
+                    <p className="px-4 pt-3 pb-1 font-label text-[10px] font-semibold uppercase tracking-[0.08em] text-outline">
+                      Products
+                    </p>
+                  )}
+                  <ul>
+                    {productHits.map((hit) => (
+                      <li key={hit.id} role="option">
+                        <Link
+                          href={hit.href}
+                          onClick={() => setOpen(false)}
+                          className="block px-4 py-2.5 hover:bg-surface-container-low border-b border-outline-variant last:border-b-0"
+                        >
+                          <span className="block font-body text-sm text-on-surface">{hit.label}</span>
+                          <span className="block font-label text-[10px] uppercase tracking-[0.08em] text-outline mt-1">
+                            {hit.detail}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </div>
+          )}
         </div>
         <p className="font-label text-xs uppercase tracking-[0.08em] text-outline">
           {getMaterialCount()} materials · {products.length} application lines
@@ -82,7 +162,9 @@ export function CatalogueExplorer() {
               </Link>
               <div className="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
                 <h2 className="font-label text-xs font-semibold uppercase tracking-[0.08em] text-primary">
-                  {product.name}
+                  <Link href={`/products/${product.slug}`} className="hover:underline">
+                    {product.name}
+                  </Link>
                 </h2>
                 <span className="material-symbols-outlined text-primary" style={{ fontSize: 22 }}>
                   {product.icon}
@@ -152,7 +234,12 @@ export function CatalogueExplorer() {
             >
               <div className="md:col-span-4 flex items-center gap-3 font-body text-sm text-on-surface">
                 <CataloguePhoto image={material.image} className="h-10 w-10 shrink-0" sizes="40px" decorative />
-                <span>{material.name}</span>
+                <Link
+                  href={`/products/${material.applicationSlug}?material=${encodeURIComponent(material.name)}#${material.id}`}
+                  className="hover:text-primary"
+                >
+                  {material.name}
+                </Link>
               </div>
               <div className="md:col-span-3 font-label text-xs text-outline">{material.detail ?? "—"}</div>
               <div className="md:col-span-3">

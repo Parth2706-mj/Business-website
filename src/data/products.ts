@@ -226,3 +226,40 @@ export function searchCatalogue(query: string): {
 
   return { products: matchedProducts, materials };
 }
+
+export interface CatalogueSearchHit {
+  id: string;
+  href: string;
+  label: string;
+  kind: "Category" | "Product";
+  detail: string;
+}
+
+/** Category and product names for the search bars. An empty query returns every name. */
+export function getCatalogueHits(query: string): CatalogueSearchHit[] {
+  const needle = query.trim().toLowerCase();
+  const categories: CatalogueSearchHit[] = products
+    .filter((product) => !needle || product.name.toLowerCase().includes(needle))
+    .map((product) => ({
+      id: `category-${product.slug}`,
+      href: `/products/${product.slug}`,
+      label: product.name,
+      kind: "Category",
+      detail: `${product.materials.length} products`,
+    }));
+
+  const productHits: CatalogueSearchHit[] = getMaterialIndex()
+    .filter((item) => {
+      if (!needle) return true;
+      return [item.name, item.detail ?? "", item.applicationName].join(" ").toLowerCase().includes(needle);
+    })
+    .map((item) => ({
+      id: item.id,
+      href: `/products/${item.applicationSlug}?material=${encodeURIComponent(item.name)}#${item.id}`,
+      label: item.name,
+      kind: "Product",
+      detail: item.detail ? `${item.applicationName} · ${item.detail}` : item.applicationName,
+    }));
+
+  return [...categories, ...productHits];
+}
