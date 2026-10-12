@@ -37,7 +37,10 @@ export function Header() {
             priority
             className="h-[4.5rem] w-auto"
           />
-          <span className="whitespace-nowrap text-center font-body text-[10px] leading-none tracking-[0.04em] text-secondary sm:text-[11px]">
+          <span
+            className="whitespace-nowrap text-center font-body text-[10px] leading-none tracking-[0.04em] sm:text-[11px]"
+            style={{ color: "#0B1B3A" }}
+          >
             {company.partnerLine}
           </span>
         </Link>
