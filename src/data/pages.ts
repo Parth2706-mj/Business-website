@@ -70,9 +70,9 @@ export const aboutPageContent = {
   heroLabel: "About the company",
   heroHeading: "Single window. Technical back-up.",
   heroBody:
-    "Since 2004, Baba Sons have been in the business of catering value-added PVC basic chemicals and additives, specifically for UPVC profile, agri and SWR pipe, garden pipe, conduit pipe, CPVC pipe and fitting, PVC floor and artificial leather, and masterbatches.",
+    "Since 2004, Baba Sons and Khandelwal Udyog have been in the business of catering value-added PVC basic chemicals and additives, specifically for UPVC profile, agri and SWR pipe, garden pipe, conduit pipe, CPVC pipe and fitting, PVC floor and artificial leather, and masterbatches.",
   mission:
-    "Since 2004, Baba Sons have been in the business of catering value-added PVC basic chemicals and additives, specifically for UPVC profile, agri and SWR pipe, garden pipe, conduit pipe, CPVC pipe and fitting, PVC floor and artificial leather, and masterbatches.",
+    "Since 2004, Baba Sons and Khandelwal Udyog have been in the business of catering value-added PVC basic chemicals and additives, specifically for UPVC profile, agri and SWR pipe, garden pipe, conduit pipe, CPVC pipe and fitting, PVC floor and artificial leather, and masterbatches.",
   values: [
     {
       title: "Single window",

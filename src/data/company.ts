@@ -9,6 +9,7 @@ export const company: CompanyInfo = {
   shortName: "Baba Sons",
   tradeName: "Khandelwal Udyog",
   tagline: "Single Window Service Provider",
+  partnerLine: "Your partner in chemical and industrial solutions",
   description:
     "Chemicals with technical back-up for PVC and CPVC processing — agricultural and SWR pipe, conduit, wire and cable, garden tubing, film, UPVC panel, flooring, and CPVC.",
 

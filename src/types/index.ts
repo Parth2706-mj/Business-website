@@ -21,6 +21,7 @@ export interface CompanyInfo {
   shortName: string;
   tradeName: string;
   tagline: string;
+  partnerLine: string;
   description: string;
   emails: string[];
   phones: PhoneLine[];
