@@ -63,7 +63,7 @@ export default async function ProductDetailPage({
         </div>
 
         <aside className="lg:col-span-4 lg:col-start-9">
-          <div className="border border-outline bg-white lg:sticky lg:top-24">
+          <div className="border border-outline bg-white lg:sticky lg:top-32">
             <div className="bg-primary px-6 py-4 flex items-center justify-between">
               <span className="font-label text-xs font-semibold uppercase tracking-[0.08em] text-on-primary">
                 This line

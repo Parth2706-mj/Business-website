@@ -58,7 +58,7 @@ export function MaterialShowcase({
             <li
               key={item.name}
               id={`${product.slug}-${index}`}
-              className={`scroll-mt-28 flex flex-col md:flex-row md:items-center gap-3 px-3 py-3 ${
+              className={`scroll-mt-36 flex flex-col md:flex-row md:items-center gap-3 px-3 py-3 ${
                 index < product.materials.length - 1 ? "border-b border-outline-variant" : ""
               } ${selected ? "bg-primary-fixed/40" : "bg-white"}`}
             >

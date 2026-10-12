@@ -24,26 +24,20 @@ export function Header() {
     <>
       <nav
         id="main-nav"
-        className={`fixed top-0 left-0 w-full z-50 bg-surface border-b border-outline-variant flex justify-between items-center min-h-24 h-24 px-4 md:px-10 xl:px-16 transition-shadow duration-200 ${
+        className={`fixed top-0 left-0 w-full z-50 bg-surface border-b border-outline-variant flex justify-between items-center h-32 px-4 md:px-10 xl:px-16 transition-shadow duration-200 ${
           scrolled ? "shadow-md" : ""
         }`}
       >
-        <Link href="/" className="shrink-0 flex flex-col items-start gap-0.5 max-w-[15.5rem] sm:max-w-[20rem]" aria-label={company.name}>
+        <Link href="/" className="shrink-0 flex flex-col items-start gap-1" aria-label={company.name}>
           <Image
-            src="/brand/logo-mark.png"
+            src="/brand/logo-lockup.png"
             alt=""
-            width={1210}
-            height={566}
+            width={1011}
+            height={500}
             priority
-            className="h-7 w-auto"
+            className="h-[4.5rem] w-auto"
           />
-          <span className="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary leading-none">
-            {company.tradeName}
-          </span>
-          <span className="font-label text-[10px] font-bold uppercase tracking-[0.16em] text-secondary leading-none">
-            {company.shortName}
-          </span>
-          <span className="font-body text-[11px] leading-tight text-secondary">
+          <span className="max-w-[11.5rem] font-body text-[11px] leading-tight text-secondary sm:max-w-[16rem]">
             {company.partnerLine}
           </span>
         </Link>
@@ -89,7 +83,7 @@ export function Header() {
       </nav>
 
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-surface pt-24 overflow-y-auto">
+        <div className="fixed inset-0 z-40 bg-surface pt-32 overflow-y-auto">
           <div className="flex flex-col p-6 gap-1">
             <SiteSearch className="mb-4" autoFocus onNavigate={() => setMenuPath(null)} />
             {mainNavLinks.map((link) => {
