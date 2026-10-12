@@ -76,7 +76,7 @@ export const serviceDirectory: ServiceItem[] = [
   { name: "Wire and cable materials", href: "/products/pvc-wire-and-cable" },
   { name: "Film, UPVC panel and floor", href: "/products/pvc-film-panel-floor" },
   { name: "Masterbatches", href: "/products/masterbatches" },
-  { name: "Request technical data", href: "/technical-data" },
+  { name: "CPVC pipe and fitting", href: "/products/cpvc" },
 ];
 
 export const contactSectionContent = {
