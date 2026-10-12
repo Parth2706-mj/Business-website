@@ -28,7 +28,7 @@ export function Header() {
           scrolled ? "shadow-md" : ""
         }`}
       >
-        <Link href="/" className="shrink-0 flex flex-col items-start gap-1" aria-label={company.name}>
+        <Link href="/" className="shrink-0 flex flex-col items-center gap-1" aria-label={company.name}>
           <Image
             src="/brand/logo-lockup.png"
             alt=""
@@ -37,7 +37,7 @@ export function Header() {
             priority
             className="h-[4.5rem] w-auto"
           />
-          <span className="max-w-[11.5rem] font-body text-[11px] leading-tight text-secondary sm:max-w-[16rem]">
+          <span className="whitespace-nowrap text-center font-body text-[10px] leading-none tracking-[0.04em] text-secondary sm:text-[11px]">
             {company.partnerLine}
           </span>
         </Link>
