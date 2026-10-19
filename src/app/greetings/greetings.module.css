@@ -1,0 +1,106 @@
+.page {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  overflow: auto;
+  background: #0b1b3a;
+  color: #f6f1e7;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.intro {
+  width: min(1100px, 100%);
+  margin: 0 auto 1.5rem;
+  text-align: center;
+}
+
+.kicker {
+  margin: 0;
+  font-family: var(--font-label), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #d4b36a;
+}
+
+.intro h1 {
+  margin: 0.4rem 0 0.35rem;
+  font-family: var(--font-headline), sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+}
+
+.intro p:last-child {
+  margin: 0;
+  font-family: var(--font-body), sans-serif;
+  color: rgba(246, 241, 231, 0.75);
+}
+
+.grid {
+  width: min(720px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 8rem;
+  border: 1px solid rgba(212, 179, 106, 0.45);
+  color: #f6f1e7;
+  text-decoration: none;
+  font-family: var(--font-headline), sans-serif;
+  font-size: 1.6rem;
+}
+
+.choice:hover {
+  border-color: #d4b36a;
+  color: #d4b36a;
+}
+
+.card {
+  margin: 0;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid rgba(212, 179, 106, 0.4);
+}
+
+.card figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.7rem;
+  font-family: var(--font-label), sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.card figcaption span {
+  color: #d4b36a;
+}
+
+.card a {
+  color: #f6f1e7;
+  text-decoration: none;
+}
+
+.card figcaption a:hover {
+  color: #d4b36a;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+}

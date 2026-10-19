@@ -105,7 +105,7 @@ export function TechnicalSupport() {
                 <span className="material-symbols-outlined text-base">
                   open_in_new
                 </span>
-                ACCESS PORTAL
+                Request technical data
               </Link>
             </div>
           </div>
